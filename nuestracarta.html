@@ -1804,59 +1804,47 @@
 
 
 /* =================================
-   IMÁGENES DE CADA CATEGORÍA
+   IMÁGENES DE CADA GALERÍA
 ================================= */
 
 const imagenesGaleria = {
 
     coffee: document.getElementById("galeriaCoffee"),
-
     cold: document.getElementById("galeriaCold"),
-
     jugo: document.getElementById("galeriaJugo"),
-
     coctel: document.getElementById("galeriaCoctel"),
-
     snack: document.getElementById("galeriaSnack"),
-
     mix: document.getElementById("galeriaMix")
 
 };
 
 
 /* =================================
-   POSICIÓN DE CADA CATEGORÍA
+   POSICIÓN ACTUAL DE CADA GALERÍA
 ================================= */
 
 const indicesGaleria = {
 
     coffee: 0,
-
     cold: 0,
-
     jugo: 0,
-
     coctel: 0,
-
     snack: 0,
-
     mix: 0
 
 };
 
 
 /* =================================
-   PRECARGAR TODAS LAS IMÁGENES
-   EVITA SALTOS EN GITHUB
+   PRE-CARGAR TODAS LAS IMÁGENES
 ================================= */
 
-Object.values(galerias).forEach(function(lista) {
+Object.keys(galerias).forEach(function(categoria) {
 
-    lista.forEach(function(src) {
+    galerias[categoria].forEach(function(src) {
 
-        const imagen = new Image();
-
-        imagen.src = src;
+        const img = new Image();
+        img.src = src;
 
     });
 
@@ -1864,35 +1852,28 @@ Object.values(galerias).forEach(function(lista) {
 
 
 /* =================================
-   CAMBIAR TODAS LAS IMÁGENES
-   AL MISMO TIEMPO
+   CAMBIAR TODAS CADA 4 SEGUNDOS
 ================================= */
 
 function cambiarGaleria() {
 
-    const siguientes = {};
-
-
-    /* =================================
-       CALCULAR LA SIGUIENTE FOTO
-       DE CADA CATEGORÍA
-    ================================= */
-
     Object.keys(galerias).forEach(function(categoria) {
 
-        const lista = galerias[categoria];
+        /* Avanza SOLO esa galería */
+        indicesGaleria[categoria]++;
 
-        indicesGaleria[categoria] =
-            (indicesGaleria[categoria] + 1) % lista.length;
+        /* Cuando llega al final vuelve a la primera */
+        if (indicesGaleria[categoria] >= galerias[categoria].length) {
 
-        siguientes[categoria] =
-            lista[indicesGaleria[categoria]];
+            indicesGaleria[categoria] = 0;
+
+        }
 
     });
 
 
     /* =================================
-       DESAPARECER TODAS JUNTAS
+       OCULTAR TODAS
     ================================= */
 
     Object.values(imagenesGaleria).forEach(function(imagen) {
@@ -1903,26 +1884,23 @@ function cambiarGaleria() {
 
 
     /* =================================
-       ESPERAR LA TRANSICIÓN
+       CAMBIAR LAS IMÁGENES
     ================================= */
 
     setTimeout(function() {
 
+        Object.keys(galerias).forEach(function(categoria) {
 
-        /* =================================
-           CAMBIAR LAS IMÁGENES
-        ================================= */
-
-        Object.keys(imagenesGaleria).forEach(function(categoria) {
+            const indice = indicesGaleria[categoria];
 
             imagenesGaleria[categoria].src =
-                siguientes[categoria];
+                galerias[categoria][indice];
 
         });
 
 
         /* =================================
-           VOLVER A MOSTRAR TODAS JUNTAS
+           VOLVER A MOSTRAR
         ================================= */
 
         setTimeout(function() {
@@ -1935,14 +1913,13 @@ function cambiarGaleria() {
 
         }, 50);
 
-
     }, 450);
 
 }
 
 
 /* =================================
-   TODAS CAMBIAN CADA 4 SEGUNDOS
+   CAMBIO CADA 4 SEGUNDOS
 ================================= */
 
 setInterval(function() {
@@ -1950,7 +1927,6 @@ setInterval(function() {
     cambiarGaleria();
 
 }, 4000);
-
 </script>
 
 
