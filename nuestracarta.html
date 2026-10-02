@@ -1765,136 +1765,191 @@
 
     const galerias = {
 
-        coffee: [
-            "img/coffee.galeria.png",
-            "img/coffee.galeria2.png",
-            "img/coffee.galeria.3.jpg"
-        ],
+    coffee: [
+        "img/coffee.galeria.png",
+        "img/coffee.galeria2.png",
+        "img/coffee.galeria.3.jpg"
+    ],
 
-        cold: [
-            "img/cold.galeria.png",
-            "img/cold.galeria.2.png",
-            "img/cold.galeria.3.png"
-        ],
+    cold: [
+        "img/cold.galeria.png",
+        "img/cold.galeria.2.png",
+        "img/cold.galeria.3.png"
+    ],
 
-        jugo: [
-            "img/jugo.galeria.png",
-            "img/jugo.galeria2.png"
-        ],
+    jugo: [
+        "img/jugo.galeria.png",
+        "img/jugo.galeria2.png"
+    ],
 
-        coctel: [
-            "img/coctel.galeria.png",
-            "img/coctel.galeria2.png",
-            "img/coctel.galeria3.jpg"
-        ],
+    coctel: [
+        "img/coctel.galeria.png",
+        "img/coctel.galeria2.png",
+        "img/coctel.galeria3.jpg"
+    ],
 
-        snack: [
-            "img/snack.galeria.png",
-            "img/snack.galeria.2.png"
-        ],
+    snack: [
+        "img/snack.galeria.png",
+        "img/snack.galeria.2.png"
+    ],
 
-        mix: [
-            "img/mix.galeria.png",
-            "img/mix.galeria2.png",
-            "img/mix.galeria.3.png",
-            "img/mix.galeria4.png"
-        ]
+    mix: [
+        "img/mix.galeria.png",
+        "img/mix.galeria2.png",
+        "img/mix.galeria.3.png",
+        "img/mix.galeria4.png"
+    ]
 
-    };
-
-
-    let indiceGaleria = 0;
+};
 
 
-    function cambiarGaleria() {
+/* =================================
+   IMÁGENES DE CADA CATEGORÍA
+================================= */
 
-        const imagenes = {
+const imagenesGaleria = {
 
-            coffee: document.getElementById("galeriaCoffee"),
+    coffee: document.getElementById("galeriaCoffee"),
 
-            cold: document.getElementById("galeriaCold"),
+    cold: document.getElementById("galeriaCold"),
 
-            jugo: document.getElementById("galeriaJugo"),
+    jugo: document.getElementById("galeriaJugo"),
 
-            coctel: document.getElementById("galeriaCoctel"),
+    coctel: document.getElementById("galeriaCoctel"),
 
-            snack: document.getElementById("galeriaSnack"),
+    snack: document.getElementById("galeriaSnack"),
 
-            mix: document.getElementById("galeriaMix")
+    mix: document.getElementById("galeriaMix")
 
-        };
+};
 
 
-        /* TODAS DESAPARECEN JUNTAS */
+/* =================================
+   POSICIÓN DE CADA CATEGORÍA
+================================= */
 
-        Object.values(imagenes).forEach(function(imagen) {
+const indicesGaleria = {
 
-            imagen.style.opacity = "0";
+    coffee: 0,
+
+    cold: 0,
+
+    jugo: 0,
+
+    coctel: 0,
+
+    snack: 0,
+
+    mix: 0
+
+};
+
+
+/* =================================
+   PRECARGAR TODAS LAS IMÁGENES
+   EVITA SALTOS EN GITHUB
+================================= */
+
+Object.values(galerias).forEach(function(lista) {
+
+    lista.forEach(function(src) {
+
+        const imagen = new Image();
+
+        imagen.src = src;
+
+    });
+
+});
+
+
+/* =================================
+   CAMBIAR TODAS LAS IMÁGENES
+   AL MISMO TIEMPO
+================================= */
+
+function cambiarGaleria() {
+
+    const siguientes = {};
+
+
+    /* =================================
+       CALCULAR LA SIGUIENTE FOTO
+       DE CADA CATEGORÍA
+    ================================= */
+
+    Object.keys(galerias).forEach(function(categoria) {
+
+        const lista = galerias[categoria];
+
+        indicesGaleria[categoria] =
+            (indicesGaleria[categoria] + 1) % lista.length;
+
+        siguientes[categoria] =
+            lista[indicesGaleria[categoria]];
+
+    });
+
+
+    /* =================================
+       DESAPARECER TODAS JUNTAS
+    ================================= */
+
+    Object.values(imagenesGaleria).forEach(function(imagen) {
+
+        imagen.style.opacity = "0";
+
+    });
+
+
+    /* =================================
+       ESPERAR LA TRANSICIÓN
+    ================================= */
+
+    setTimeout(function() {
+
+
+        /* =================================
+           CAMBIAR LAS IMÁGENES
+        ================================= */
+
+        Object.keys(imagenesGaleria).forEach(function(categoria) {
+
+            imagenesGaleria[categoria].src =
+                siguientes[categoria];
 
         });
 
 
+        /* =================================
+           VOLVER A MOSTRAR TODAS JUNTAS
+        ================================= */
+
         setTimeout(function() {
 
-            imagenes.coffee.src =
-                galerias.coffee[
-                    indiceGaleria % galerias.coffee.length
-                ];
-
-
-            imagenes.cold.src =
-                galerias.cold[
-                    indiceGaleria % galerias.cold.length
-                ];
-
-
-            imagenes.jugo.src =
-                galerias.jugo[
-                    indiceGaleria % galerias.jugo.length
-                ];
-
-
-            imagenes.coctel.src =
-                galerias.coctel[
-                    indiceGaleria % galerias.coctel.length
-                ];
-
-
-            imagenes.snack.src =
-                galerias.snack[
-                    indiceGaleria % galerias.snack.length
-                ];
-
-
-            imagenes.mix.src =
-                galerias.mix[
-                    indiceGaleria % galerias.mix.length
-                ];
-
-
-            /* TODAS APARECEN JUNTAS */
-
-            Object.values(imagenes).forEach(function(imagen) {
+            Object.values(imagenesGaleria).forEach(function(imagen) {
 
                 imagen.style.opacity = "1";
 
             });
 
-
-            indiceGaleria++;
-
-        }, 450);
-
-    }
+        }, 50);
 
 
-    /* TODAS CAMBIAN CADA 4 SEGUNDOS */
+    }, 450);
 
-    setInterval(function() {
+}
 
-        cambiarGaleria();
 
-    }, 4000);
+/* =================================
+   TODAS CAMBIAN CADA 4 SEGUNDOS
+================================= */
+
+setInterval(function() {
+
+    cambiarGaleria();
+
+}, 4000);
 
 </script>
 
