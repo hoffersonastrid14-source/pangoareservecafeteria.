@@ -1,0 +1,155 @@
+#banner {
+    margin-top: 0;
+    position: relative;
+    width: 100%;
+    height: 92vh;
+    min-height: 600px;
+    overflow: hidden;
+}
+
+/* Video de fondo */
+#banner .video-fondo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    z-index: 0;
+}
+
+/* Oscurece un poco el video */
+#banner::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.50);
+    z-index: 1;
+}
+
+/* Contenido del Inicio */
+#banner .contenedor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    width: 90%;
+    max-width: 850px;
+}
+
+/* Título */
+#banner h2 {
+    font-size: 42px;
+    color: #f0a500;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.9);
+}
+
+/* Descripción */
+#banner p {
+    font-size: 19px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    line-height: 1.5;
+}
+
+/* Botón */
+#banner a {
+    display: inline-block;
+    width: auto;
+    min-width: 140px;
+    color: #ffffff;
+    background-color: #d99000;
+    text-decoration: none;
+    padding: 12px 25px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#banner a:hover {
+    background-color: #b87800;
+    transform: scale(1.05);
+}
+
+
+/* Tablets */
+@media (max-width: 768px) {
+
+    #banner {
+        height: 90vh;
+        min-height: 550px;
+    }
+
+    #banner h2 {
+        font-size: 36px;
+    }
+
+    #banner p {
+        font-size: 17px;
+    }
+}
+
+
+/* Celulares */
+@media (max-width: 480px) {
+
+    #banner {
+        height: 88vh;
+        min-height: 500px;
+    }
+
+    #banner h2 {
+        font-size: 30px;
+    }
+
+    #banner p {
+        font-size: 16px;
+    }
+}
+#banner a {
+    display: inline-block; 
+    width: auto;
+    min-width: 130px;
+    color: #ffffff;
+    background-color: #d65a00;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 4px;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+#banner a:hover {
+    background-color: #b54c00;
+    transform: scale(1.05);
+}
+@media (min-width: 480px) {
+    #banner h2 {
+        font-size: 36px;
+    }
+}
+@media (min-width: 768px) {
+    #banner {
+        height: 420px;
+    }
+    #banner h2 {
+        font-size: 42px;
+    }
+    #banner p {
+        font-size: 18px;
+    }
+}
+@media (min-width: 1024px) { 
+    #banner {
+        height: 480px;
+    }
+}

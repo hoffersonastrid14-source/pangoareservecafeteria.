@@ -1,0 +1,1121 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pangoa Reserve - Cafetería</title>
+
+    <link rel="stylesheet" href="CSS/fontello.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+
+    <style>
+
+        /* =========================
+           FONDO GENERAL
+        ========================= */
+
+        body {
+            background: #000000;
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           INICIO CON VIDEO
+        ========================= */
+
+        .inicio {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            min-height: 600px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000000;
+        }
+
+        .video-fondo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 0;
+        }
+
+        .capa-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .contenido-inicio {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 900px;
+            padding: 30px;
+        }
+
+        .contenido-inicio .pequeno {
+            color: #f39c12;
+            font-size: 14px;
+            letter-spacing: 4px;
+            margin-bottom: 15px;
+        }
+
+        .contenido-inicio h1 {
+            color: #ffffff;
+            font-size: 72px;
+            letter-spacing: 4px;
+            margin: 0 0 15px;
+        }
+
+        .contenido-inicio p {
+            color: #eeeeee;
+            font-size: 19px;
+            line-height: 1.7;
+            margin-bottom: 30px;
+        }
+
+        .boton-inicio {
+            display: inline-block;
+            background: #f39c12;
+            color: #ffffff;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .boton-inicio:hover {
+            background: #d98205;
+            transform: translateY(-3px);
+        }
+
+        .flecha-scroll {
+            position: absolute;
+            bottom: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffffff;
+            font-size: 30px;
+            z-index: 2;
+            animation: bajar 1.5s infinite;
+        }
+
+        @keyframes bajar {
+            0%, 100% {
+                transform: translate(-50%, 0);
+            }
+
+            50% {
+                transform: translate(-50%, 8px);
+            }
+        }
+
+
+        /* =========================
+           SECCIONES GENERALES
+        ========================= */
+
+        .seccion-inicio {
+            background: #000000;
+            padding: 90px 7%;
+        }
+
+        .seccion-cafe {
+            background: #111111;
+            padding: 90px 7%;
+        }
+
+        .contenedor-inicio {
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .titulo-seccion span {
+            display: block;
+            color: #f39c12;
+            font-size: 13px;
+            letter-spacing: 3px;
+            margin-bottom: 12px;
+        }
+
+        .titulo-seccion h2 {
+            color: #ffffff;
+            font-size: 40px;
+            margin: 0;
+        }
+
+        .texto-presentacion {
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            color: #cccccc;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           IMAGEN + TEXTO
+        ========================= */
+
+        .bloque-imagen {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 55px;
+            align-items: center;
+        }
+
+        .bloque-imagen img {
+            width: 100%;
+            height: 430px;
+            object-fit: cover;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .texto-bloque h2 {
+            color: #ffffff;
+            font-size: 38px;
+            margin-bottom: 20px;
+        }
+
+        .texto-bloque h2 span {
+            color: #f39c12;
+        }
+
+        .texto-bloque p {
+            color: #bbbbbb;
+            font-size: 17px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           TARJETAS
+        ========================= */
+
+        .tarjetas {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .tarjeta {
+            background: #151515;
+            border: 1px solid #292929;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: 0.3s;
+        }
+
+        .tarjeta:hover {
+            transform: translateY(-7px);
+            border-color: #f39c12;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .tarjeta-contenido {
+            padding: 25px;
+        }
+
+        .tarjeta-contenido h3 {
+            color: #ffffff;
+            font-size: 22px;
+            margin-bottom: 12px;
+        }
+
+        .tarjeta-contenido p {
+            color: #aaaaaa;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+
+        /* =========================
+           GALERÍA
+        ========================= */
+
+        .galeria {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            grid-template-rows: 250px 250px;
+            gap: 15px;
+        }
+
+        .galeria img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 7px;
+            transition: 0.3s;
+        }
+
+        .galeria img:hover {
+            transform: scale(1.02);
+        }
+
+        .galeria .imagen-grande {
+            grid-row: 1 / 3;
+        }
+
+
+        /* =========================
+           SELVA CENTRAL
+        ========================= */
+
+        .selva {
+            position: relative;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background: #080808;
+        }
+
+        .selva img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.35;
+        }
+
+        .selva-capa {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+        }
+
+        .selva-contenido {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            text-align: center;
+            padding: 30px;
+        }
+
+        .selva-contenido span {
+            color: #f39c12;
+            letter-spacing: 3px;
+            font-size: 13px;
+        }
+
+        .selva-contenido h2 {
+            color: #ffffff;
+            font-size: 42px;
+            margin: 15px 0;
+        }
+
+        .selva-contenido p {
+            color: #dddddd;
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           BOTÓN FINAL
+        ========================= */
+
+        .final-inicio {
+            background: #000000;
+            text-align: center;
+            padding: 85px 20px;
+        }
+
+        .final-inicio h2 {
+            color: #ffffff;
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .final-inicio p {
+            color: #bbbbbb;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .boton-final {
+            display: inline-block;
+            background: #f39c12;
+            color: #ffffff;
+            padding: 14px 32px;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+
+        .boton-final:hover {
+            background: #d98205;
+        }
+
+
+        /* =========================
+           REDES SOCIALES
+        ========================= */
+
+        .redes-sociales-iconos {
+            display: flex;
+            gap: 15px;
+        }
+
+        .redes-sociales-iconos a {
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            background: transparent;
+            padding: 0;
+        }
+
+        .redes-sociales-iconos a:hover {
+            border: none;
+            background: transparent;
+        }
+
+        .redes-sociales-iconos svg {
+            display: block;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .contenido-inicio h1 {
+                font-size: 52px;
+            }
+
+            .tarjetas {
+                grid-template-columns: 1fr;
+            }
+
+            .bloque-imagen {
+                grid-template-columns: 1fr;
+            }
+
+            .galeria {
+                grid-template-columns: 1fr 1fr;
+                grid-template-rows: 250px 250px 250px;
+            }
+
+            .galeria .imagen-grande {
+                grid-column: 1 / 3;
+                grid-row: auto;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .contenido-inicio h1 {
+                font-size: 40px;
+            }
+
+            .contenido-inicio p {
+                font-size: 16px;
+            }
+
+            .contenido-inicio .pequeno {
+                font-size: 11px;
+                letter-spacing: 2px;
+            }
+
+            .seccion-inicio,
+            .seccion-cafe {
+                padding: 65px 6%;
+            }
+
+            .titulo-seccion h2,
+            .texto-bloque h2,
+            .selva-contenido h2,
+            .final-inicio h2 {
+                font-size: 30px;
+            }
+
+            .bloque-imagen img {
+                height: 300px;
+            }
+
+            .galeria {
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+
+            .galeria .imagen-grande {
+                grid-column: auto;
+            }
+
+            .galeria img {
+                height: 260px;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         MENÚ
+    ========================= -->
+
+    <header>
+
+        <div class="contenedor">
+
+            <h1 class="logo">
+
+                <a href="index.html">
+
+                    <svg width="30" height="30"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="#f39c12"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        style="margin-right: 8px;">
+
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+
+                    </svg>
+
+                    <img src="img/logo.jpg" alt="Pangoa Reserve Logo">
+
+                </a>
+
+            </h1>
+
+
+            <input type="checkbox" id="menu-bar">
+
+            <label class="icon-menu" for="menu-bar"></label>
+
+
+            <nav class="menu">
+
+                <a href="index.html">Inicio</a>
+
+                <a href="nosotros.html">Nosotros</a>
+
+                <a href="contenido.html">Contenido</a>
+
+                <a href="nuestracarta.html">
+                    <i class="icon-cafe"></i>
+                    Nuestra Carta
+                </a>
+
+                <a href="contacto.html">Contacto</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         VIDEO PRINCIPAL
+    ========================= -->
+
+    <section class="inicio">
+
+        <video class="video-fondo"
+            autoplay
+            muted
+            loop
+            playsinline>
+
+            <source src="videos/fondo.mp4" type="video/mp4">
+
+            Tu navegador no permite reproducir videos.
+
+        </video>
+
+
+        <div class="capa-video"></div>
+
+
+        <div class="contenido-inicio">
+
+            <p class="pequeno">
+                CAFÉ DE ESPECIALIDAD • SELVA CENTRAL
+            </p>
+
+            <h1>PANGOA RESERVE</h1>
+
+            <p>
+                Una experiencia alrededor del café,
+                los sabores y la esencia de nuestra tierra.
+            </p>
+
+            <a href="nuestracarta.html" class="boton-inicio">
+                Ver nuestra carta
+            </a>
+
+        </div>
+
+
+        <div class="flecha-scroll">
+            ↓
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         BIENVENIDOS
+    ========================= -->
+
+    <section class="seccion-inicio">
+
+        <div class="contenedor-inicio">
+
+            <div class="titulo-seccion">
+
+                <span>BIENVENIDOS</span>
+
+                <h2>Conoce Pangoa Reserve</h2>
+
+            </div>
+
+
+            <p class="texto-presentacion">
+
+                Pangoa Reserve es una cafetería donde el café
+                y los sabores de nuestra región forman parte
+                de la experiencia.
+
+                <br><br>
+
+                Conoce nuestras preparaciones, productos y
+                diferentes opciones para disfrutar de un
+                momento agradable.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         IMAGEN + INFORMACIÓN
+    ========================= -->
+
+    <section class="seccion-cafe">
+
+        <div class="contenedor-inicio">
+
+            <div class="bloque-imagen">
+
+                <div>
+
+                    <img src="img/banner.jpg"
+                        alt="Pangoa Reserve">
+
+                </div>
+
+
+                <div class="texto-bloque">
+
+                    <h2>
+                        El café es parte de
+                        <span>nuestra identidad</span>
+                    </h2>
+
+                    <p>
+                        En Pangoa Reserve buscamos que cada
+                        preparación permita disfrutar el café
+                        y conocer un poco más sobre los productos
+                        de nuestra región.
+                    </p>
+
+                    <p>
+                        Desde los métodos de extracción hasta
+                        las diferentes bebidas, cada opción forma
+                        parte de nuestra propuesta.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         GALERÍA
+    ========================= -->
+
+    <section class="seccion-inicio">
+
+        <div class="contenedor-inicio">
+
+            <div class="titulo-seccion">
+
+                <span>PANGOA RESERVE</span>
+
+                <h2>Un espacio para disfrutar</h2>
+
+            </div>
+
+
+            <div class="galeria">
+
+                <img
+                    class="imagen-grande"
+                    src="img/cafeteria5.jpg"
+                    alt="Cafetería Pangoa Reserve">
+
+                <img
+                    src="img/cafeteria2.jpg"
+                    alt="Cafetería Pangoa Reserve">
+
+                <img
+                    src="img/cafeteria3.jpg"
+                    alt="Cafetería Pangoa Reserve">
+
+                <img
+                    src="img/cafeteria4.jpg"
+                    alt="Cafetería Pangoa Reserve">
+
+                <img
+                    src="img/cafeteria.jpg"
+                    alt="Cafetería Pangoa Reserve">
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         SELVA CENTRAL
+    ========================= -->
+
+    <section class="selva">
+
+        <img
+            src="img/banner.1.png"
+            alt="Selva Central">
+
+        <div class="selva-capa"></div>
+
+
+        <div class="selva-contenido">
+
+            <span>
+                DESDE PANGOA
+            </span>
+
+            <h2>
+                Sabores de la Selva Central
+            </h2>
+
+            <p>
+                Nuestra propuesta también busca mostrar
+                parte de la identidad y los sabores de
+                nuestra tierra.
+
+                <br><br>
+
+                Pangoa Reserve conecta el café con la
+                experiencia de conocer nuestra región.
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CARTA
+    ========================= -->
+
+    <section class="seccion-cafe">
+
+        <div class="contenedor-inicio">
+
+            <div class="titulo-seccion">
+
+                <span>NUESTRA CARTA</span>
+
+                <h2>Encuentra tu favorita</h2>
+
+            </div>
+
+
+            <div class="tarjetas">
+
+                <div class="tarjeta">
+
+                    <img
+                        src="img/coffee.galeria.3.jpg"
+                        alt="Café">
+
+                    <div class="tarjeta-contenido">
+
+                        <h3>Cafés</h3>
+
+                        <p>
+                            Conoce nuestras opciones
+                            de café y métodos de extracción.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <img
+                        src="img/coctel.galeria2.png"
+                        alt="Bebidas">
+
+                    <div class="tarjeta-contenido">
+
+                        <h3>Bebidas</h3>
+
+                        <p>
+                            Diferentes bebidas para
+                            acompañar tu momento.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="tarjeta">
+
+                    <img
+                        src="img/imagen3.jpg"
+                        alt="Especialidades">
+
+                    <div class="tarjeta-contenido">
+
+                        <h3>Especialidades</h3>
+
+                        <p>
+                            Descubre otras opciones
+                            disponibles en nuestra carta.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div style="text-align:center; margin-top:40px;">
+
+                <a
+                    href="nuestracarta.html"
+                    class="boton-inicio">
+
+                    Ver nuestra carta
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         LLAMADO FINAL
+    ========================= -->
+
+    <section class="final-inicio">
+
+        <h2>
+            Visítanos y descubre Pangoa Reserve
+        </h2>
+
+        <p>
+            Disfruta del café y de una experiencia
+            inspirada en la Selva Central.
+        </p>
+
+        <a
+            href="contacto.html"
+            class="boton-final">
+
+            Contáctanos
+
+        </a>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="contenedor-footer-marca">
+
+
+            <div class="columna-logo-footer">
+
+                <img
+                    src="img/logo.jpg"
+                    alt="Pangoa Reserve Logo">
+
+            </div>
+
+
+            <div class="col-footer">
+
+                <h4>SOPORTE</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Política de Privacidad
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#"
+                    class="btn-libro-reclamaciones">
+
+                    <i class="icon-book-open"></i>
+
+                    <span>
+                        Libro de<br>
+                        Reclamaciones
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <div class="col-footer">
+
+                <h4>CARTA</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#productos">
+                            Métodos de Extracción
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#productos">
+                            Café de Especialidad
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#carta">
+                            Bebidas y Cócteles
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-footer">
+
+                <h4>EMPRESA</h4>
+
+                <ul>
+
+                    <li>
+                        <a href="nosotros.html">
+                            Nuestra Historia
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nosotros.html">
+                            Selva Central
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Términos y Condiciones
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="col-footer">
+
+                <h4>CONTACTO</h4>
+
+                <p class="correo-contacto">
+                    contacto@pangoareserve.pe
+                </p>
+
+
+                <h4>
+                    ÚNETE A LA COMUNIDAD
+                </h4>
+
+
+                <div class="redes-sociales-iconos">
+
+                    <a
+                        href="https://www.facebook.com/p/Pangoa-Reserve-Cafeter%C3%ADa-100085414183384/"
+                        target="_blank"
+                        aria-label="Facebook">
+
+                        <svg
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="#ffffff"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+
+                        </svg>
+
+                    </a>
+
+
+                    <a
+                        href="https://www.instagram.com/cafeteriapangoareserve/"
+                        target="_blank"
+                        aria-label="Instagram">
+
+                        <svg
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="#ffffff"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <rect
+                                x="2"
+                                y="2"
+                                width="20"
+                                height="20"
+                                rx="5">
+                            </rect>
+
+                            <path
+                                d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z">
+                            </path>
+
+                            <line
+                                x1="17.5"
+                                y1="6.5"
+                                x2="17.51"
+                                y2="6.5">
+                            </line>
+
+                        </svg>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <div class="copyright-bottom">
+
+                <p>
+                    Pangoa Reserve® Cafetería 2026 |
+                    © Todos los derechos reservados.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1032 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contacto | Pangoa Reserve®</title>
+
+    <link rel="stylesheet" href="CSS/fontello.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+
+    <style>
+
+        /* =========================
+           PÁGINA CONTACTO
+        ========================= */
+
+        body {
+            background: #111111;
+            color: #ffffff;
+        }
+
+
+        /* =========================
+           CONTACTO
+        ========================= */
+
+        .contacto {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 45px;
+            max-width: 1250px;
+            margin: 0 auto;
+            padding: 90px 40px 70px;
+            background: #111111;
+        }
+
+
+        /* =========================
+           INFORMACIÓN DE CONTACTO
+        ========================= */
+
+        .info-contacto {
+            flex: 1;
+            max-width: 600px;
+            padding: 20px 35px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .info-contacto h2 {
+            text-align: center;
+            margin: 0 0 20px;
+            font-size: 32px;
+            font-weight: 600;
+        }
+
+        .info-contacto > p {
+            text-align: center;
+            line-height: 1.7;
+            margin: 0 auto 35px;
+            max-width: 520px;
+            color: #dddddd;
+        }
+
+
+        /* =========================
+           DATOS DE CONTACTO
+        ========================= */
+
+        .detalles-contacto {
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+            width: 100%;
+        }
+
+        .item-contacto {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            width: 100%;
+        }
+
+        .item-contacto .icono {
+            width: 35px;
+            min-width: 35px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 22px;
+        }
+
+        .item-contacto h4 {
+            margin: 0 0 5px;
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .item-contacto p {
+            margin: 0;
+            line-height: 1.5;
+            color: #dddddd;
+        }
+
+
+        /* =========================
+           REDES SOCIALES
+        ========================= */
+
+        .redes-contacto {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .redes-contacto h4 {
+            margin: 0 8px 0 0;
+            display: inline-block;
+        }
+
+        .iconos-contacto {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0;
+            vertical-align: middle;
+        }
+
+        .iconos-contacto a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            transition: 0.3s;
+        }
+
+        .iconos-contacto a:hover {
+            transform: scale(1.12);
+        }
+
+        .iconos-contacto svg {
+            display: block;
+        }
+
+
+        /* =========================
+           FORMULARIO
+        ========================= */
+
+        .formulario-contacto {
+            flex: 1;
+            max-width: 560px;
+
+            background: #1b1b1b;
+
+            padding: 32px;
+
+            border: 1px solid #333333;
+            border-radius: 14px;
+
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+        }
+
+        .formulario-contacto h3 {
+            text-align: center;
+            font-size: 27px;
+            margin: 0 0 25px;
+            font-weight: 600;
+        }
+
+        .campo {
+            margin-bottom: 16px;
+        }
+
+        .campo label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: 15px;
+            color: #eeeeee;
+        }
+
+        .campo input,
+        .campo textarea {
+            width: 100%;
+            box-sizing: border-box;
+
+            padding: 11px 13px;
+
+            background: #111111;
+            color: #ffffff;
+
+            border: 1px solid #444444;
+            border-radius: 9px;
+
+            outline: none;
+
+            font-family: inherit;
+            font-size: 15px;
+        }
+
+        .campo input:focus,
+        .campo textarea:focus {
+            border-color: #f39c12;
+        }
+
+        .campo textarea {
+            resize: vertical;
+            min-height: 105px;
+        }
+
+        .campo input::placeholder,
+        .campo textarea::placeholder {
+            color: #888888;
+        }
+
+        .btn-enviar {
+            width: 100%;
+            padding: 12px;
+
+            background: #f39c12;
+            color: #111111;
+
+            border: none;
+            border-radius: 9px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .btn-enviar:hover {
+            background: #ffffff;
+        }
+
+
+        /* =========================
+           MAPA
+        ========================= */
+
+        .mapa {
+            max-width: 1200px;
+            margin: 0 auto 70px;
+            padding: 0 40px;
+        }
+
+        .mapa h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .mapa-contenedor {
+            overflow: hidden;
+            border-radius: 14px;
+            border: 1px solid #333333;
+        }
+
+        .mapa iframe {
+            width: 100%;
+            height: 350px;
+            display: block;
+            border: 0;
+        }
+
+
+        /* =========================
+           ICONOS DEL FOOTER
+        ========================= */
+
+        .redes-sociales-iconos {
+            display: flex;
+            gap: 15px;
+        }
+
+        .redes-sociales-iconos a {
+            width: auto;
+            height: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: none;
+            background: transparent;
+            padding: 0;
+        }
+
+        .redes-sociales-iconos a:hover {
+            border: none;
+            background: transparent;
+        }
+
+        .redes-sociales-iconos svg {
+            display: block;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .contacto {
+                flex-direction: column;
+                align-items: center;
+                gap: 40px;
+
+                padding: 60px 25px;
+            }
+
+            .info-contacto,
+            .formulario-contacto {
+                max-width: 650px;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .info-contacto {
+                padding: 20px;
+            }
+
+            .mapa {
+                padding: 0 25px;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            .contacto {
+                padding: 45px 15px;
+            }
+
+            .info-contacto {
+                padding: 10px;
+            }
+
+            .info-contacto h2 {
+                font-size: 27px;
+            }
+
+            .formulario-contacto {
+                padding: 25px 20px;
+            }
+
+            .mapa {
+                padding: 0 15px;
+            }
+
+            .mapa h2 {
+                font-size: 27px;
+            }
+
+            .mapa iframe {
+                height: 300px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header>
+
+        <div class="contenedor">
+
+            <h1 class="logo">
+
+                <a href="index.html">
+
+                    <svg width="30"
+                         height="30"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#f39c12"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         style="margin-right: 8px;">
+
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+
+                    </svg>
+
+
+                    <img src="img/logo.jpg"
+                         alt="Pangoa Reserve Logo">
+
+                </a>
+
+            </h1>
+
+
+            <input type="checkbox" id="menu-bar">
+
+
+            <label class="icon-menu" for="menu-bar"></label>
+
+
+            <nav class="menu">
+
+                <a href="index.html">
+                    Inicio
+                </a>
+
+                <a href="nosotros.html">
+                    Nosotros
+                </a>
+
+                <a href="contenido.html">
+                    Contenido
+                </a>
+
+                <a href="nuestracarta.html">
+
+                    <i class="icon-cafe"></i>
+
+                    Nuestra Carta
+
+                </a>
+
+                <a href="contacto.html">
+                    Contacto
+                </a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================
+         CONTACTO
+    ========================= -->
+
+    <section class="contacto">
+
+
+        <!-- INFORMACIÓN -->
+
+        <div class="info-contacto">
+
+            <h2>
+                Visítanos y Contáctanos
+            </h2>
+
+
+            <p>
+                Déjanos un mensaje o ven a disfrutar del mejor café
+                de especialidad y cacao fino de aroma directamente
+                de la Selva Central.
+            </p>
+
+
+            <div class="detalles-contacto">
+
+
+                <!-- UBICACIÓN -->
+
+                <div class="item-contacto">
+
+                    <span class="icono">
+                        📍
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Ubicación
+                        </h4>
+
+                        <p>
+                            Calle 26 de Marzo S/N<br>
+                            San Martín de Pangoa,<br>
+                            Satipo, Junín, Perú
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TELÉFONO -->
+
+                <div class="item-contacto">
+
+                    <span class="icono">
+                        📞
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Teléfono / WhatsApp
+                        </h4>
+
+                        <p>
+                            +51 959111724
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- CORREO -->
+
+                <div class="item-contacto">
+
+                    <span class="icono">
+                        ✉️
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Correo Electrónico
+                        </h4>
+
+                        <p>
+                            contacto@pangoareserve.pe
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- HORARIO -->
+
+                <div class="item-contacto">
+
+                    <span class="icono">
+                        ⏰
+                    </span>
+
+                    <div>
+
+                        <h4>
+                            Horario de Atención
+                        </h4>
+
+                        <p>
+                            Lunes a Sábado: 8:00 am - 10:00 pm
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- REDES SOCIALES -->
+
+            <div class="redes-contacto">
+
+                <h4>
+                    Síguenos
+                </h4>
+
+
+                <div class="iconos-contacto">
+
+
+                    <!-- FACEBOOK -->
+
+                    <a
+                        href="https://www.facebook.com/p/Pangoa-Reserve-Cafeter%C3%ADa-100085414183384/"
+                        target="_blank"
+                        aria-label="Facebook">
+
+                        <svg
+                            width="27"
+                            height="27"
+                            viewBox="0 0 24 24"
+                            fill="#ffffff"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+
+                        </svg>
+
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+
+                    <a
+                        href="https://www.instagram.com/cafeteriapangoareserve/"
+                        target="_blank"
+                        aria-label="Instagram">
+
+                        <svg
+                            width="27"
+                            height="27"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                                stroke="#ffffff"
+                                stroke-width="2">
+                            </rect>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                                stroke="#ffffff"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="#ffffff">
+                            </circle>
+
+                        </svg>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =========================
+             FORMULARIO
+        ========================= -->
+
+        <div class="formulario-contacto">
+
+            <h3>
+                Envíanos un mensaje
+            </h3>
+
+
+            <form action="#" method="POST">
+
+
+                <div class="campo">
+
+                    <label for="nombre">
+                        Nombre completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        placeholder="Tu nombre"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="email">
+                        Correo electrónico
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="tu@correo.com"
+                        required>
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="asunto">
+                        Asunto
+                    </label>
+
+                    <input
+                        type="text"
+                        id="asunto"
+                        name="asunto"
+                        placeholder="Ej: Reserva / Consulta sobre café">
+
+                </div>
+
+
+                <div class="campo">
+
+                    <label for="mensaje">
+                        Mensaje
+                    </label>
+
+                    <textarea
+                        id="mensaje"
+                        name="mensaje"
+                        rows="4"
+                        placeholder="Escribe tu mensaje aquí..."
+                        required></textarea>
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="btn-enviar">
+
+                    Enviar Mensaje
+
+                </button>
+
+
+            </form>
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         MAPA
+    ========================= -->
+
+    <section class="mapa">
+
+        <h2>
+            ¿Dónde encontrarnos?
+        </h2>
+
+
+        <div class="mapa-contenedor">
+
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31317.02641038587!2d-74.502000!3d-11.431000!2m3!1f0!2f0!3f0!2m3!1i1024!2i768!4f13.1!3m3!1m2!1s0x910a300000000001%3A0x0!2sPangoa%2C%20Satipo%2C%20Peru!5e0!3m2!1ses!2spe!4v1700000000000!5m2!1ses!2spe"
+                width="100%"
+                height="350"
+                allowfullscreen=""
+                loading="lazy">
+            </iframe>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
+
+    <footer>
+
+        <div class="contenedor-footer-marca">
+
+
+            <!-- LOGO -->
+
+            <div class="columna-logo-footer">
+
+                <img
+                    src="img/logo.jpg"
+                    alt="Pangoa Reserve Logo">
+
+            </div>
+
+
+            <!-- SOPORTE -->
+
+            <div class="col-footer">
+
+                <h4>
+                    SOPORTE
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#contacto">
+                            Contacto
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Política de Privacidad
+                        </a>
+                    </li>
+
+                </ul>
+
+
+                <a
+                    href="#"
+                    class="btn-libro-reclamaciones">
+
+                    <i class="icon-book-open"></i>
+
+                    <span>
+                        Libro de<br>
+                        Reclamaciones
+                    </span>
+
+                </a>
+
+            </div>
+
+
+            <!-- CARTA -->
+
+            <div class="col-footer">
+
+                <h4>
+                    CARTA
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="#productos">
+                            Métodos de Extracción
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#productos">
+                            Café de Especialidad
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#carta">
+                            Bebidas y Cócteles
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- EMPRESA -->
+
+            <div class="col-footer">
+
+                <h4>
+                    EMPRESA
+                </h4>
+
+                <ul>
+
+                    <li>
+                        <a href="nosotros.html">
+                            Nuestra Historia
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="nosotros.html">
+                            Selva Central
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Términos y Condiciones
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <!-- CONTACTO -->
+
+            <div class="col-footer">
+
+                <h4>
+                    CONTACTO
+                </h4>
+
+                <p class="correo-contacto">
+                    contacto@pangoareserve.pe
+                </p>
+
+                <h4>
+                    ÚNETE A LA COMUNIDAD
+                </h4>
+
+
+                <div class="redes-sociales-iconos">
+
+
+                    <!-- FACEBOOK -->
+
+                    <a
+                        href="https://www.facebook.com/p/Pangoa-Reserve-Cafeter%C3%ADa-100085414183384/"
+                        target="_blank"
+                        aria-label="Facebook">
+
+                        <svg
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="#ffffff"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+
+                        </svg>
+
+                    </a>
+
+
+                    <!-- INSTAGRAM -->
+
+                    <a
+                        href="https://www.instagram.com/cafeteriapangoareserve/"
+                        target="_blank"
+                        aria-label="Instagram">
+
+                        <svg
+                            width="22"
+                            height="22"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+
+                            <rect
+                                x="3"
+                                y="3"
+                                width="18"
+                                height="18"
+                                rx="5"
+                                stroke="#ffffff"
+                                stroke-width="2">
+                            </rect>
+
+                            <circle
+                                cx="12"
+                                cy="12"
+                                r="4"
+                                stroke="#ffffff"
+                                stroke-width="2">
+                            </circle>
+
+                            <circle
+                                cx="17.5"
+                                cy="6.5"
+                                r="1"
+                                fill="#ffffff">
+                            </circle>
+
+                        </svg>
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+            <!-- COPYRIGHT -->
+
+            <div class="copyright-bottom">
+
+                <p>
+                    Pangoa Reserve® Cafetería 2026 |
+                    © Todos los derechos reservados.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

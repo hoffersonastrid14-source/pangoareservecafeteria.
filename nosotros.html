@@ -1,0 +1,2215 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nosotros | Pangoa Reserve®</title>
+
+    <link rel="stylesheet" href="CSS/fontello.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+
+    <style>
+
+        /* =====================================================
+           CONFIGURACIÓN GENERAL
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background: #000000;
+        }
+
+        body {
+            margin: 0;
+            background: #000000;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        main {
+            background: #000000;
+        }
+
+
+        /* =====================================================
+           PORTADA
+        ===================================================== */
+
+        .nosotros-portada {
+
+            height: 65vh;
+            min-height: 480px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: #000000;
+
+        }
+
+
+        /* =====================================================
+           BANNER CARRUSEL
+        ===================================================== */
+
+        .banner-nosotros {
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            z-index: 0;
+
+        }
+
+
+        .banner-nosotros img {
+
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            opacity: 1;
+
+            transition: opacity 0.6s ease;
+
+        }
+
+
+        /* DEGRADADO SOBRE LA IMAGEN */
+
+        .banner-nosotros::after {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.25) 0%,
+                    rgba(0,0,0,0.10) 35%,
+                    rgba(0,0,0,0.45) 65%,
+                    rgba(0,0,0,0.90) 100%
+                );
+
+            z-index: 1;
+
+        }
+
+
+        .nosotros-portada::after {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: 0;
+
+            width: 100%;
+            height: 100px;
+
+            z-index: 2;
+
+            background: linear-gradient(
+                transparent,
+                #000000
+            );
+
+        }
+
+
+        /* =====================================================
+           TEXTO DE PORTADA - NOSOTROS
+        ===================================================== */
+
+        .nosotros-portada-contenido {
+
+            position: relative;
+
+            z-index: 3;
+
+            max-width: 1000px;
+
+            padding: 25px;
+
+        }
+
+
+        .nosotros-portada-contenido .mini {
+
+            margin: 0 0 18px;
+
+            color: #e0a11a;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            letter-spacing: 5px;
+
+        }
+
+
+        .nosotros-portada-contenido h1 {
+
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: clamp(48px, 6vw, 78px);
+
+            line-height: 1.1;
+
+            font-weight: 700;
+
+            text-shadow: 0 3px 15px rgba(0,0,0,0.7);
+
+        }
+
+
+        .nosotros-portada-contenido span {
+
+            display: block;
+
+            margin-top: 22px;
+
+            color: #f0c45a;
+
+            font-size: clamp(18px, 2vw, 24px);
+
+            font-weight: 500;
+
+            letter-spacing: 1px;
+
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+
+        }
+
+
+        /* =====================================================
+           HISTORIA - NEGRO
+        ===================================================== */
+
+        .historia {
+
+            padding: 90px 7%;
+
+            background: #000000;
+
+            color: #ffffff;
+
+        }
+
+
+        .historia-contenedor {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .pequeno-titulo {
+
+            display: inline-block;
+
+            margin-bottom: 15px;
+
+            color: #c58a13;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .historia-texto h2 {
+
+            margin: 0 0 25px;
+
+            font-size: clamp(30px, 3.5vw, 44px);
+
+            line-height: 1.1;
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+        }
+
+
+        .historia-texto h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 60px;
+
+            height: 3px;
+
+            margin-top: 20px;
+
+            background: #e0a11a;
+
+        }
+
+
+        .historia-texto p {
+
+            margin: 0 0 18px;
+
+            color: #cccccc;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .historia-imagen {
+
+            position: relative;
+
+            padding: 15px;
+
+        }
+
+
+        .historia-imagen::before {
+
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            border: 1px solid #e0a11a;
+
+            box-sizing: border-box;
+
+        }
+
+
+        /* =====================================================
+           CARRUSEL HISTORIA
+        ===================================================== */
+
+        .historia-imagen .carrusel-nosotros {
+
+            position: relative;
+
+            width: 100%;
+
+            height: 480px;
+
+            overflow: hidden;
+
+        }
+
+
+        .historia-imagen .carrusel-nosotros img {
+
+            position: relative;
+
+            z-index: 1;
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 1;
+
+            transition: opacity 0.45s ease;
+
+        }
+
+
+        /* =====================================================
+           PANGOA RESERVE - NEGRO
+        ===================================================== */
+
+        .identidad {
+
+            padding: 100px 7%;
+
+            background: #000000;
+
+        }
+
+
+        .identidad-contenedor {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 70px;
+
+            align-items: center;
+
+        }
+
+
+        .identidad-imagen {
+
+            overflow: hidden;
+
+        }
+
+
+        /* =====================================================
+           CARRUSEL PANGOA RESERVE
+        ===================================================== */
+
+        .identidad-imagen .carrusel-nosotros {
+
+            width: 100%;
+
+            height: 440px;
+
+            overflow: hidden;
+
+        }
+
+
+        .identidad-imagen .carrusel-nosotros img {
+
+            display: block;
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: cover;
+
+            opacity: 1;
+
+            transition:
+                opacity 0.45s ease,
+                transform 0.5s ease;
+
+        }
+
+
+        .identidad-imagen:hover img {
+
+            transform: scale(1.04);
+
+        }
+
+
+        .identidad-texto h2 {
+
+            margin: 0 0 25px;
+
+            font-size: clamp(30px, 3.5vw, 44px);
+
+            line-height: 1.1;
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+        }
+
+
+        .identidad-texto h2::after {
+
+            content: "";
+
+            display: block;
+
+            width: 60px;
+
+            height: 3px;
+
+            margin-top: 20px;
+
+            background: #e0a11a;
+
+        }
+
+
+        .identidad-texto p {
+
+            color: #cccccc;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .detalle-dorado {
+
+            margin-top: 25px;
+
+            padding-left: 18px;
+
+            border-left: 3px solid #e0a11a;
+
+            color: #eeeeee;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           CERTIFICACIONES - NEGRO
+        ===================================================== */
+
+        .reconocimientos {
+
+            padding: 100px 7%;
+
+            background: #000000;
+
+            color: #ffffff;
+
+        }
+
+
+        .reconocimientos-contenedor {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+        .reconocimientos .titulo-centro {
+
+            text-align: center;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .reconocimientos .titulo-centro span {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #c58a13;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .reconocimientos .titulo-centro h2 {
+
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: clamp(30px, 4vw, 43px);
+
+            font-weight: 600;
+
+        }
+
+
+        .texto-intro {
+
+            max-width: 750px;
+
+            margin: 0 auto 55px;
+
+            text-align: center;
+
+            color: #cccccc;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .certificaciones {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 20px;
+
+        }
+
+
+        .certificacion {
+
+            padding: 30px 20px;
+
+            text-align: center;
+
+            border: 1px solid #333333;
+
+            background: #111111;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .certificacion:hover {
+
+            transform: translateY(-5px);
+
+            border-color: #e0a11a;
+
+        }
+
+
+        .certificacion .icono {
+
+            font-size: 28px;
+
+            color: #c58a13;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .certificacion h3 {
+
+            margin: 0 0 10px;
+
+            font-size: 17px;
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+        }
+
+
+        .certificacion p {
+
+            margin: 0;
+
+            color: #999999;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+        }
+
+
+        /* =====================================================
+           VÍNCULOS INTERNACIONALES - NEGRO
+        ===================================================== */
+
+        .vinculos {
+
+            padding: 100px 7%;
+
+            background: #000000;
+
+        }
+
+
+        .vinculos-contenedor {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+        .vinculos-texto {
+
+            max-width: 800px;
+
+            margin-bottom: 45px;
+
+        }
+
+
+        .vinculos-texto h2 {
+
+            margin: 0 0 20px;
+
+            font-size: clamp(30px, 3.5vw, 43px);
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+        }
+
+
+        .vinculos-texto p {
+
+            color: #cccccc;
+
+            font-size: 15px;
+
+            line-height: 1.8;
+
+        }
+
+
+        .lista-aliados {
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 12px;
+
+        }
+
+
+        .aliado {
+
+            padding: 18px;
+
+            background: #111111;
+
+            border: 1px solid #303030;
+
+            color: #dddddd;
+
+            font-size: 14px;
+
+            text-align: center;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .aliado:hover {
+
+            border-color: #e0a11a;
+
+            color: #e0a11a;
+
+        }
+
+
+        /* =====================================================
+           VISITAS - NEGRO
+        ===================================================== */
+
+        .visitas {
+
+            padding: 90px 7%;
+
+            background: #000000;
+
+            color: #ffffff;
+
+        }
+
+
+        .visitas-contenedor {
+
+            max-width: 900px;
+
+            margin: auto;
+
+            text-align: center;
+
+        }
+
+
+        .visitas-contenedor h2 {
+
+            margin: 0 0 25px;
+
+            font-size: clamp(30px, 3.5vw, 43px);
+
+            font-weight: 600;
+
+            color: #ffffff;
+
+        }
+
+
+        .visitas-contenedor p {
+
+            margin: 0;
+
+            color: #cccccc;
+
+            font-size: 16px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           MISIÓN / VISIÓN / OBJETIVO - NEGRO
+        ===================================================== */
+
+        .principios {
+
+            padding: 100px 7%;
+
+            background: #000000;
+
+        }
+
+
+        .principios-contenedor {
+
+            max-width: 1200px;
+
+            margin: auto;
+
+        }
+
+
+        .principios .titulo-centro {
+
+            text-align: center;
+
+            margin-bottom: 55px;
+
+        }
+
+
+        .principios .titulo-centro span {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            color: #e0a11a;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        .principios .titulo-centro h2 {
+
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: clamp(30px, 4vw, 43px);
+
+            font-weight: 600;
+
+        }
+
+
+        .bloques {
+
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 22px;
+
+        }
+
+
+        .bloque {
+
+            padding: 35px 28px;
+
+            min-height: 260px;
+
+            background: #111111;
+
+            border: 1px solid #333333;
+
+            transition: 0.3s ease;
+
+        }
+
+
+        .bloque:hover {
+
+            transform: translateY(-6px);
+
+            border-color: #e0a11a;
+
+        }
+
+
+        .bloque h3 {
+
+            margin: 0 0 20px;
+
+            color: #e0a11a;
+
+            font-size: 18px;
+
+            letter-spacing: 2px;
+
+        }
+
+
+        .bloque p {
+
+            margin: 0;
+
+            color: #cccccc;
+
+            font-size: 14px;
+
+            line-height: 1.8;
+
+        }
+
+
+        /* =====================================================
+           CIERRE - NEGRO
+        ===================================================== */
+
+        .frase-final {
+
+            padding: 100px 20px;
+
+            text-align: center;
+
+            background: #000000;
+
+            color: #ffffff;
+
+        }
+
+
+        .frase-final h2 {
+
+            max-width: 850px;
+
+            margin: auto;
+
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(28px, 3.5vw, 45px);
+
+            line-height: 1.3;
+
+            font-weight: 400;
+
+            letter-spacing: 0.5px;
+
+        }
+
+
+        .frase-final span {
+
+            display: block;
+
+            margin-top: 25px;
+
+            color: #e0a11a;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 3px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 900px) {
+
+            .historia-contenedor,
+            .identidad-contenedor {
+
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+            }
+
+
+            .certificaciones {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .lista-aliados {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+
+            .bloques {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+
+        /* =====================================================
+           CELULAR
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            .nosotros-portada {
+
+                height: 58vh;
+
+                min-height: 430px;
+
+            }
+
+
+            .nosotros-portada-contenido h1 {
+
+                font-size: 40px;
+
+            }
+
+
+            .nosotros-portada-contenido span {
+
+                font-size: 15px;
+
+            }
+
+
+            .historia,
+            .identidad,
+            .reconocimientos,
+            .vinculos,
+            .principios {
+
+                padding: 70px 6%;
+
+            }
+
+
+            .visitas {
+
+                padding: 70px 6%;
+
+            }
+
+
+            .historia-imagen .carrusel-nosotros,
+            .identidad-imagen .carrusel-nosotros {
+
+                height: 350px;
+
+            }
+
+
+            .historia-imagen::before {
+
+                top: 0;
+
+                left: 0;
+
+            }
+
+
+            .certificaciones {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .lista-aliados {
+
+                grid-template-columns: 1fr 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header>
+
+    <div class="contenedor">
+
+        <h1 class="logo">
+
+            <a href="index.html">
+
+                <svg width="30"
+                     height="30"
+                     viewBox="0 0 24 24"
+                     fill="none"
+                     stroke="#f39c12"
+                     stroke-width="2"
+                     stroke-linecap="round"
+                     stroke-linejoin="round"
+                     style="margin-right: 8px;">
+
+                    <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+
+                    <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+
+                    <line x1="6" y1="1" x2="6" y2="4"></line>
+
+                    <line x1="10" y1="1" x2="10" y2="4"></line>
+
+                    <line x1="14" y1="1" x2="14" y2="4"></line>
+
+                </svg>
+
+
+                <img src="img/logo.jpg"
+                     alt="Pangoa Reserve Logo">
+
+            </a>
+
+        </h1>
+
+
+        <input type="checkbox" id="menu-bar">
+
+        <label class="icon-menu" for="menu-bar"></label>
+
+
+        <nav class="menu">
+
+            <a href="index.html">
+                Inicio
+            </a>
+
+            <a href="nosotros.html">
+                Nosotros
+            </a>
+
+            <a href="contenido.html">
+                Contenido
+            </a>
+
+            <a href="nuestracarta.html">
+                <i class="icon-cafe"></i>
+                Nuestra Carta
+            </a>
+
+            <a href="contacto.html">
+                Contacto
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     CONTENIDO PRINCIPAL
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     PORTADA
+===================================================== -->
+
+<section class="nosotros-portada">
+
+
+    <div class="banner-nosotros">
+
+        <img id="bannerPrincipal"
+             src="img/banner.jpg"
+             alt="Pangoa Reserve">
+
+    </div>
+
+
+    <div class="nosotros-portada-contenido">
+
+        <p class="mini">
+            PANGOA RESERVE®
+        </p>
+
+        <h1>
+            Nuestra historia
+        </h1>
+
+        <span>
+            Café, cacao y tradición de la Selva Central.
+        </span>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HISTORIA
+===================================================== -->
+
+<section class="historia">
+
+    <div class="historia-contenedor">
+
+
+        <div class="historia-texto">
+
+            <span class="pequeno-titulo">
+                EL ORIGEN
+            </span>
+
+
+            <h2>
+                De la historia de Pangoa a Pangoa Reserve
+            </h2>
+
+
+            <p>
+                La historia comienza el 2 de octubre de 1977,
+                cuando 50 agricultores cafetaleros se reunieron
+                con la iniciativa de formar una cooperativa en
+                el distrito de Pangoa. Así nació la Cooperativa
+                Agraria Cafetalera Pangoa.
+            </p>
+
+
+            <p>
+                Durante los siguientes años, la cooperativa fue
+                creciendo junto a sus productores. El trabajo se
+                centró en mejorar la producción, la calidad y la
+                comercialización del café y, posteriormente,
+                también del cacao.
+            </p>
+
+
+            <p>
+                Este crecimiento permitió desarrollar nuevos
+                procesos y espacios relacionados con los productos
+                de la cooperativa. Con el tiempo, el trabajo dejó
+                de estar solamente enfocado en la producción y
+                comercialización y también comenzó a acercarse
+                directamente al consumidor.
+            </p>
+
+
+            <p>
+                Para 2018 ya se registraba la existencia de un
+                laboratorio de café, un tostador y una cafetería
+                vinculados a la cooperativa. En este proceso se
+                encuentra el origen de Pangoa Reserve Cafetería,
+                un espacio pensado para acercar el café y otros
+                productos de Pangoa a quienes los consumen.
+            </p>
+
+
+            <p>
+                Así, Pangoa Reserve forma parte de un camino que
+                comienza con los productores, continúa con el
+                trabajo de la cooperativa y llega finalmente
+                hasta la experiencia de disfrutar una taza de
+                café.
+            </p>
+
+        </div>
+
+
+
+        <div class="historia-imagen">
+
+            <div class="carrusel-nosotros">
+
+                <img id="carruselHistoria"
+                     src="img/fundadores.jpg"
+                     alt="Historia de la Cooperativa Pangoa">
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PANGOA RESERVE
+===================================================== -->
+
+<section class="identidad">
+
+    <div class="identidad-contenedor">
+
+
+        <div class="identidad-imagen">
+
+            <div class="carrusel-nosotros">
+
+                <img id="carruselIdentidad"
+                     src="img/imagen1.jpg"
+                     alt="Pangoa Reserve Cafetería">
+
+            </div>
+
+        </div>
+
+
+
+        <div class="identidad-texto">
+
+            <span class="pequeno-titulo">
+                PANGOA RESERVE CAFETERÍA
+            </span>
+
+
+            <h2>
+                Del productor a la taza
+            </h2>
+
+
+            <p>
+                Como parte de este camino, la cooperativa
+                desarrolló espacios para trabajar y mostrar
+                la calidad de sus productos. Para 2018 ya se
+                registraba la existencia de un laboratorio de
+                café, un tostador y una cafetería.
+            </p>
+
+
+            <p>
+                Pangoa Reserve Cafetería representa ese espacio
+                donde el público puede acercarse al café y
+                cacao de la zona, conocer sus productos y
+                disfrutar diferentes preparaciones.
+            </p>
+
+
+            <p>
+                La cafetería permite acercar al consumidor
+                al trabajo que existe detrás de cada producto,
+                desde el origen de los granos hasta su
+                preparación.
+            </p>
+
+
+            <div class="detalle-dorado">
+
+                Una cafetería vinculada a una historia de
+                productores, café, cacao y trabajo en la
+                Selva Central.
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CERTIFICACIONES
+===================================================== -->
+
+<section class="reconocimientos">
+
+    <div class="reconocimientos-contenedor">
+
+
+        <div class="titulo-centro">
+
+            <span>
+                COOPERATIVA AGRARIA CAFETALERA PANGOA
+            </span>
+
+            <h2>
+                Certificaciones y trayectoria
+            </h2>
+
+        </div>
+
+
+        <p class="texto-intro">
+
+            Estos reconocimientos y certificaciones corresponden
+            a la Cooperativa Agraria Cafetalera Pangoa y a su
+            trabajo con los productores. Se muestran como parte
+            de la historia y trayectoria que acompaña a
+            Pangoa Reserve Cafetería.
+
+        </p>
+
+
+        <div class="certificaciones">
+
+
+            <div class="certificacion">
+
+                <div class="icono">
+                    ☕
+                </div>
+
+                <h3>
+                    Orgánico
+                </h3>
+
+                <p>
+                    Certificación relacionada con la producción
+                    orgánica de la cooperativa.
+                </p>
+
+            </div>
+
+
+
+            <div class="certificacion">
+
+                <div class="icono">
+                    ✓
+                </div>
+
+                <h3>
+                    Fairtrade
+                </h3>
+
+                <p>
+                    La cooperativa obtuvo la certificación de
+                    Comercio Justo.
+                </p>
+
+            </div>
+
+
+
+            <div class="certificacion">
+
+                <div class="icono">
+                    🌱
+                </div>
+
+                <h3>
+                    SPP
+                </h3>
+
+                <p>
+                    Forma parte de las certificaciones
+                    internacionales que presenta la cooperativa.
+                </p>
+
+            </div>
+
+
+
+            <div class="certificacion">
+
+                <div class="icono">
+                    🌳
+                </div>
+
+                <h3>
+                    Bird Friendly
+                </h3>
+
+                <p>
+                    Certificación relacionada con prácticas
+                    de producción compatibles con la protección
+                    del hábitat.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VÍNCULOS INTERNACIONALES
+===================================================== -->
+
+<section class="vinculos">
+
+    <div class="vinculos-contenedor">
+
+
+        <div class="vinculos-texto">
+
+            <span class="pequeno-titulo">
+                MÁS ALLÁ DE PANGOA
+            </span>
+
+
+            <h2>
+                Vínculos con otros mercados
+            </h2>
+
+
+            <p>
+
+                La Cooperativa Agraria Cafetalera Pangoa
+                comercializa sus productos y mantiene vínculos
+                con empresas y organizaciones relacionadas con
+                el café y cacao en diferentes mercados.
+
+                Entre los clientes que aparecen en la información
+                oficial de la cooperativa se encuentran:
+
+            </p>
+
+        </div>
+
+
+
+        <div class="lista-aliados">
+
+
+            <div class="aliado">
+                Level Ground
+            </div>
+
+            <div class="aliado">
+                Cooperative Coffees
+            </div>
+
+            <div class="aliado">
+                Paragon Coffee
+            </div>
+
+            <div class="aliado">
+                Royal Coffee
+            </div>
+
+            <div class="aliado">
+                Café Direct
+            </div>
+
+            <div class="aliado">
+                Twin Trading
+            </div>
+
+            <div class="aliado">
+                Just Us
+            </div>
+
+            <div class="aliado">
+                Falcon Coffees
+            </div>
+
+            <div class="aliado">
+                Cargill Cocoa
+            </div>
+
+            <div class="aliado">
+                Saldac
+            </div>
+
+            <div class="aliado">
+                Interamerican Coffee
+            </div>
+
+            <div class="aliado">
+                Bohonkaft Kolonial
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     VISITAS INTERNACIONALES
+===================================================== -->
+
+<section class="visitas">
+
+    <div class="visitas-contenedor">
+
+
+        <span class="pequeno-titulo">
+            INTERCAMBIO DE EXPERIENCIAS
+        </span>
+
+
+        <h2>
+            Una historia que también ha llegado al exterior
+        </h2>
+
+
+        <p>
+
+            El trabajo de la cooperativa también ha generado
+            espacios de intercambio con personas y profesionales
+            relacionados con el café sostenible de diferentes
+            países.
+
+            En 2016, por ejemplo, Esperanza Dionisio Castillo
+            participó junto con 40 productores en un encuentro
+            con socios tostadores de Cooperative Coffees en
+            Estados Unidos.
+
+            También existen registros de visitantes y
+            profesionales extranjeros interesados en conocer
+            el trabajo de Pangoa, sus plantaciones y sus
+            procesos de producción.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRINCIPIOS
+===================================================== -->
+
+<section class="principios">
+
+    <div class="principios-contenedor">
+
+
+        <div class="titulo-centro">
+
+            <span>
+                NUESTRA BASE
+            </span>
+
+            <h2>
+                Lo que nos representa
+            </h2>
+
+        </div>
+
+
+
+        <div class="bloques">
+
+
+            <div class="bloque">
+
+                <h3>
+                    MISIÓN
+                </h3>
+
+                <p>
+
+                    Promover una gestión eficiente, comercial,
+                    empresarial y asociativa, basada en la
+                    formación solidaria, el conocimiento
+                    especializado y el uso adecuado de
+                    tecnologías y servicios.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="bloque">
+
+                <h3>
+                    VISIÓN
+                </h3>
+
+                <p>
+
+                    Ser una cooperativa con presencia global,
+                    conocimiento especializado de la agricultura
+                    ancestral, valor agregado y desarrollo
+                    socioeconómico de sus asociados, manteniendo
+                    la sostenibilidad ambiental y el respeto
+                    por sus costumbres y tradiciones.
+
+                </p>
+
+            </div>
+
+
+
+            <div class="bloque">
+
+                <h3>
+                    OBJETIVO
+                </h3>
+
+                <p>
+
+                    Fortalecer la organización para mejorar los
+                    ingresos económicos y elevar el nivel de
+                    vida de sus socios, impulsando al mismo
+                    tiempo el desarrollo cooperativo.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CIERRE
+===================================================== -->
+
+<section class="frase-final">
+
+    <h2>
+
+        Del trabajo de nuestros productores
+        hasta una taza de café.
+
+    </h2>
+
+
+    <span>
+        PANGOA RESERVE® CAFETERÍA
+    </span>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer>
+
+    <div class="contenedor-footer-marca">
+
+
+        <!-- LOGO -->
+
+        <div class="columna-logo-footer">
+
+            <img src="img/logo.jpg"
+                 alt="Pangoa Reserve Logo">
+
+        </div>
+
+
+
+        <!-- SOPORTE -->
+
+        <div class="col-footer">
+
+            <h4>
+                SOPORTE
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Política de Privacidad
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <a href="#"
+               class="btn-libro-reclamaciones">
+
+                <i class="icon-book-open"></i>
+
+                <span>
+                    Libro de<br>
+                    Reclamaciones
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- CARTA -->
+
+        <div class="col-footer">
+
+            <h4>
+                CARTA
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="#productos">
+                        Métodos de Extracción
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#productos">
+                        Café de Especialidad
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#carta">
+                        Bebidas y Cócteles
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- EMPRESA -->
+
+        <div class="col-footer">
+
+            <h4>
+                EMPRESA
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="nosotros.html">
+                        Nuestra Historia
+                    </a>
+                </li>
+
+                <li>
+                    <a href="nosotros.html">
+                        Selva Central
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Términos y Condiciones
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- CONTACTO -->
+
+        <div class="col-footer">
+
+            <h4>
+                CONTACTO
+            </h4>
+
+
+            <p class="correo-contacto">
+                contacto@pangoareserve.pe
+            </p>
+
+
+            <h4>
+                ÚNETE A LA COMUNIDAD
+            </h4>
+
+
+            <div class="redes-sociales-iconos">
+
+
+                <!-- FACEBOOK -->
+
+                <a href="https://www.facebook.com/p/Pangoa-Reserve-Cafeter%C3%ADa-100085414183384/"
+                   target="_blank"
+                   aria-label="Facebook">
+
+                    <svg width="22"
+                         height="22"
+                         viewBox="0 0 24 24"
+                         fill="#ffffff"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+
+                    </svg>
+
+                </a>
+
+
+
+                <!-- INSTAGRAM -->
+
+                <a href="https://www.instagram.com/cafeteriapangoareserve/"
+                   target="_blank"
+                   aria-label="Instagram">
+
+                    <svg width="22"
+                         height="22"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#ffffff"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="2"
+                              y="2"
+                              width="20"
+                              height="20"
+                              rx="5">
+                        </rect>
+
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z">
+                        </path>
+
+                        <line x1="17.5"
+                              y1="6.5"
+                              x2="17.51"
+                              y2="6.5">
+                        </line>
+
+                    </svg>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="copyright-bottom">
+
+            <p>
+                Pangoa Reserve® Cafetería 2026 |
+                © Todos los derechos reservados.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT DE LOS CARRUSELES
+===================================================== -->
+
+<script>
+
+
+    /* =====================================================
+       BANNER PRINCIPAL
+    ===================================================== */
+
+    const imagenesBanner = [
+
+        "img/banner.jpg",
+
+        "img/banner_2.jpg",
+
+        "img/banner_3.jpg"
+
+    ];
+
+
+    let indiceBanner = 0;
+
+
+    const bannerPrincipal =
+        document.getElementById("bannerPrincipal");
+
+
+    function cambiarBanner() {
+
+        bannerPrincipal.style.opacity = "0";
+
+
+        setTimeout(function() {
+
+            indiceBanner++;
+
+
+            if (indiceBanner >= imagenesBanner.length) {
+
+                indiceBanner = 0;
+
+            }
+
+
+            bannerPrincipal.src =
+                imagenesBanner[indiceBanner];
+
+
+            bannerPrincipal.style.opacity = "1";
+
+        }, 600);
+
+    }
+
+
+    setInterval(
+
+        cambiarBanner,
+
+        5000
+
+    );
+
+
+
+    /* =====================================================
+       CARRUSEL DE HISTORIA
+    ===================================================== */
+
+    const imagenesHistoria = [
+
+        "img/fundadores.jpg",
+
+        "img/fundadores2.jpg"
+
+    ];
+
+
+    let indiceHistoria = 0;
+
+
+    const carruselHistoria =
+        document.getElementById("carruselHistoria");
+
+
+    function cambiarHistoria() {
+
+        carruselHistoria.style.opacity = "0";
+
+
+        setTimeout(function() {
+
+            indiceHistoria++;
+
+
+            if (indiceHistoria >= imagenesHistoria.length) {
+
+                indiceHistoria = 0;
+
+            }
+
+
+            carruselHistoria.src =
+                imagenesHistoria[indiceHistoria];
+
+
+            carruselHistoria.style.opacity = "1";
+
+
+        }, 450);
+
+    }
+
+
+    setInterval(
+
+        cambiarHistoria,
+
+        4000
+
+    );
+
+
+
+    /* =====================================================
+       CARRUSEL PANGOA RESERVE
+    ===================================================== */
+
+    const imagenesIdentidad = [
+
+        "img/imagen1.jpg",
+
+        "img/imagen2.jpg"
+
+    ];
+
+
+    let indiceIdentidad = 0;
+
+
+    const carruselIdentidad =
+        document.getElementById("carruselIdentidad");
+
+
+    function cambiarIdentidad() {
+
+        carruselIdentidad.style.opacity = "0";
+
+
+        setTimeout(function() {
+
+            indiceIdentidad++;
+
+
+            if (indiceIdentidad >= imagenesIdentidad.length) {
+
+                indiceIdentidad = 0;
+
+            }
+
+
+            carruselIdentidad.src =
+                imagenesIdentidad[indiceIdentidad];
+
+
+            carruselIdentidad.style.opacity = "1";
+
+
+        }, 450);
+
+    }
+
+
+    setInterval(
+
+        cambiarIdentidad,
+
+        4000
+
+    );
+
+
+</script>
+
+
+</body>
+
+</html>

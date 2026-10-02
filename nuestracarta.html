@@ -1,0 +1,1904 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nuestra Carta - Pangoa Reserve Cafetería</title>
+
+    <link rel="stylesheet" href="CSS/fontello.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+
+    <style>
+
+        /* ==============================
+           FONDO
+        ============================== */
+
+        body {
+            background: #000000;
+        }
+
+
+        /* ==============================
+           TÍTULO PRINCIPAL
+        ============================== */
+
+        .titulo-carta {
+            text-align: center;
+            padding: 40px 20px 25px;
+        }
+
+        .titulo-carta h2 {
+            color: #f39c12;
+            font-size: 32px;
+            margin: 0 0 8px;
+            letter-spacing: 1px;
+        }
+
+        .titulo-carta p {
+            color: #999;
+            font-size: 15px;
+            margin: 0;
+        }
+
+
+        /* ==============================
+           VISOR DE LA CARTA
+        ============================== */
+
+        .visor-carta {
+            width: 100%;
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .pagina-carta {
+            display: none;
+            width: 100%;
+            height: 720px;
+
+            background: #151515;
+            border: 1px solid #2d2d2d;
+            border-radius: 12px;
+
+            padding: 45px 55px;
+            box-sizing: border-box;
+
+            box-shadow: 0 0 25px rgba(243, 156, 18, 0.08);
+
+            overflow-y: auto;
+
+            animation: aparecer 0.35s ease;
+
+            scrollbar-width: thin;
+            scrollbar-color: #f39c12 #222;
+        }
+
+        .pagina-carta.activa {
+            display: block;
+        }
+
+        .pagina-carta::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        .pagina-carta::-webkit-scrollbar-track {
+            background: #222;
+            border-radius: 10px;
+        }
+
+        .pagina-carta::-webkit-scrollbar-thumb {
+            background: #f39c12;
+            border-radius: 10px;
+        }
+
+        .pagina-carta::-webkit-scrollbar-thumb:hover {
+            background: #ffb52e;
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: translateX(15px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+
+        /* ==============================
+           TÍTULOS DE CATEGORÍA
+        ============================== */
+
+        .titulo-seccion {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .titulo-seccion h3 {
+            color: #f39c12;
+            font-size: 29px;
+            margin: 0 0 5px;
+
+            text-transform: uppercase;
+            letter-spacing: 1px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 13px;
+        }
+
+        .titulo-seccion span {
+            display: block;
+            color: #8f8f8f;
+            font-size: 13px;
+        }
+
+        .icono-titulo {
+            width: 30px;
+            height: 30px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+        }
+
+        .icono-titulo svg {
+            width: 27px;
+            height: 27px;
+
+            stroke: #ffffff;
+            fill: none;
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* ==============================
+           PRODUCTOS
+        ============================== */
+
+        .lista-productos {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .producto {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 13px 0;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .nombre-producto {
+            color: #eeeeee;
+            font-size: 16px;
+        }
+
+        .precio {
+            color: #f39c12;
+            font-size: 15px;
+            font-weight: bold;
+            white-space: nowrap;
+            margin-left: 15px;
+        }
+
+
+        /* ==============================
+           MIX RESERVE
+        ============================== */
+
+        .mix-reserve {
+            text-align: center;
+        }
+
+        .mix-reserve .lista-productos {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mix-reserve .producto-mix {
+            width: 90%;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 18px 0;
+
+            border-bottom: 1px solid #292929;
+        }
+
+        .mix-reserve .nombre-producto {
+            text-align: center;
+            color: #f0f0f0;
+            font-size: 17px;
+            font-weight: bold;
+        }
+
+        .mix-reserve .descripcion {
+            color: #a8a8a8;
+            font-size: 14px;
+            line-height: 1.5;
+
+            margin: 8px auto;
+
+            max-width: 480px;
+
+            text-align: center;
+        }
+
+        .mix-reserve .precio {
+            text-align: center;
+            margin-top: 3px;
+        }
+
+
+        /* ==============================
+           NAVEGACIÓN DE PÁGINAS
+        ============================== */
+
+        .navegacion-carta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 25px;
+
+            margin: 20px auto 60px;
+        }
+
+        .boton-pagina {
+            background: #f39c12;
+            color: #111;
+
+            border: none;
+            border-radius: 6px;
+
+            padding: 10px 18px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        .boton-pagina:hover {
+            background: #ffb52e;
+            transform: translateY(-2px);
+        }
+
+        .boton-pagina:disabled {
+            background: #444;
+            color: #777;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .numero-pagina {
+            color: #f39c12;
+            font-size: 15px;
+            font-weight: bold;
+            min-width: 55px;
+            text-align: center;
+        }
+
+
+        /* ==============================
+           GALERÍA
+        ============================== */
+
+        .galeria-carta {
+            width: 96%;
+            max-width: 1400px;
+            margin: 0 auto 60px;
+        }
+
+        .titulo-galeria {
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .titulo-galeria h3 {
+            color: #f39c12;
+            font-size: 24px;
+            margin: 0 0 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .titulo-galeria p {
+            color: #888;
+            font-size: 13px;
+            margin: 0;
+        }
+
+
+        /* ==============================
+           GALERÍA
+           4 ARRIBA + 2 ABAJO
+        ============================== */
+
+        .contenedor-galeria {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+            justify-content: center;
+        }
+
+        .galeria-item {
+            text-align: center;
+            min-width: 0;
+        }
+
+        .galeria-item:nth-child(5) {
+            grid-column: 2;
+        }
+
+        .galeria-item:nth-child(6) {
+            grid-column: 3;
+        }
+
+
+        /* ==============================
+           CUADROS VERTICALES
+        ============================== */
+
+        .carrusel-mini {
+            position: relative;
+
+            width: 100%;
+            height: 330px;
+
+            background: #151515;
+
+            border: 1px solid #2d2d2d;
+            border-radius: 10px;
+
+            overflow: hidden;
+
+            box-shadow: 0 0 15px rgba(243, 156, 18, 0.06);
+        }
+
+        .carrusel-mini img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            display: block;
+
+            opacity: 1;
+
+            transition: opacity 0.45s ease;
+        }
+
+        .nombre-galeria {
+            color: #f39c12;
+
+            font-size: 13px;
+            font-weight: bold;
+
+            margin: 10px 0 0;
+
+            letter-spacing: 0.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 1100px) {
+
+            .contenedor-galeria {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeria-item:nth-child(5),
+            .galeria-item:nth-child(6) {
+                grid-column: auto;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .contenedor-galeria {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .galeria-item:nth-child(5),
+            .galeria-item:nth-child(6) {
+                grid-column: auto;
+            }
+
+            .carrusel-mini {
+                height: 280px;
+            }
+
+            .pagina-carta {
+                height: 680px;
+                padding: 35px 30px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .contenedor-galeria {
+                grid-template-columns: 1fr;
+            }
+
+            .carrusel-mini {
+                height: 320px;
+            }
+
+            .pagina-carta {
+                padding: 30px 20px;
+            }
+
+            .titulo-seccion h3 {
+                font-size: 24px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         ENCABEZADO
+    ============================== -->
+
+    <header>
+
+        <div class="contenedor">
+
+            <h1 class="logo">
+
+                <a href="index.html">
+
+                    <svg width="30"
+                         height="30"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#f39c12"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         style="margin-right: 8px;">
+
+                        <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+
+                        <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+
+                        <line x1="6" y1="1" x2="6" y2="4"></line>
+
+                        <line x1="10" y1="1" x2="10" y2="4"></line>
+
+                        <line x1="14" y1="1" x2="14" y2="4"></line>
+
+                    </svg>
+
+                    <img src="img/logo.jpg"
+                         alt="Pangoa Reserve Logo">
+
+                </a>
+
+            </h1>
+
+
+            <input type="checkbox" id="menu-bar">
+
+            <label class="icon-menu" for="menu-bar"></label>
+
+
+            <nav class="menu">
+
+                <a href="index.html">Inicio</a>
+
+                <a href="nosotros.html">Nosotros</a>
+
+                <a href="contenido.html">Contenido</a>
+
+                <a href="nuestracarta.html">
+                    <i class="icon-cafe"></i>
+                    Nuestra Carta
+                </a>
+
+                <a href="contacto.html">Contacto</a>
+
+            </nav>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ==============================
+         TÍTULO
+    ============================== -->
+
+    <section class="titulo-carta">
+
+        <h2>
+            Pangoa Reserve Cafetería
+        </h2>
+
+        <p>
+            Nuestra carta
+        </p>
+
+    </section>
+
+
+
+    <!-- ==============================
+         CARTA
+    ============================== -->
+
+    <main class="visor-carta">
+
+
+        <!-- COFFEE -->
+
+        <section class="pagina-carta activa">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 8h14v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"></path>
+                            <path d="M18 10h1a3 3 0 0 1 0 6h-1"></path>
+                            <line x1="8" y1="4" x2="8" y2="6"></line>
+                            <line x1="12" y1="3" x2="12" y2="6"></line>
+                            <line x1="16" y1="4" x2="16" y2="6"></line>
+                        </svg>
+                    </span>
+
+                    COFFEE
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 8h14v7a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V8z"></path>
+                            <path d="M18 10h1a3 3 0 0 1 0 6h-1"></path>
+                            <line x1="8" y1="4" x2="8" y2="6"></line>
+                            <line x1="12" y1="3" x2="12" y2="6"></line>
+                            <line x1="16" y1="4" x2="16" y2="6"></line>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Bebidas calientes</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto">
+                    <span class="nombre-producto">Americano</span>
+                    <span class="precio">S/ 6.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Espresso</span>
+                    <span class="precio">S/ 5.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Capuccino</span>
+                    <span class="precio">S/ 8.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Mocaccino</span>
+                    <span class="precio">S/ 8.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Choco Reserve</span>
+                    <span class="precio">S/ 8.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Chocolate / Pangoa</span>
+                    <span class="precio">S/ 6.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Bom Bom de café</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Experiencia Reserve</span>
+                    <span class="precio">S/ 30.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Prensa Francesa</span>
+                    <span class="precio">S/ 12.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Método V60</span>
+                    <span class="precio">S/ 12.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Método Chemex</span>
+                    <span class="precio">S/ 12.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- COLD DRINKS -->
+
+        <section class="pagina-carta">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20"></path>
+                            <path d="M4.93 4.93l14.14 14.14"></path>
+                            <path d="M2 12h20"></path>
+                            <path d="M4.93 19.07L19.07 4.93"></path>
+                        </svg>
+                    </span>
+
+                    COLD DRINKS
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M12 2v20"></path>
+                            <path d="M4.93 4.93l14.14 14.14"></path>
+                            <path d="M2 12h20"></path>
+                            <path d="M4.93 19.07L19.07 4.93"></path>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Bebidas frías</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto">
+                    <span class="nombre-producto">Coffee Ice</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Latte Ice</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Chocolate Ice</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Orange Coffee</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Affogato</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Tropical Reserve</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen de Café</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen Clásico</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen de Camu Camu</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen de Quito Quito</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen de Maracuyá</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frozen de Naranja</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Café</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Chocolate</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Moka</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Oreo</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Maracuyá</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Arazá</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Guanábana</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Camu Camu</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Fresa</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Frappé de Guanábana</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- JUICES & SMOOTHIES -->
+
+        <section class="pagina-carta">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 3h10"></path>
+                            <path d="M8 3l1 17h6l1-17"></path>
+                            <path d="M9 8h6"></path>
+                        </svg>
+                    </span>
+
+                    JUICES &amp; SMOOTHIES
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 3h10"></path>
+                            <path d="M8 3l1 17h6l1-17"></path>
+                            <path d="M9 8h6"></path>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Jugos y Batidos</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto">
+                    <span class="nombre-producto">Naranja</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Plátano</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Papaya</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Guanábana</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Fresa</span>
+                    <span class="precio">S/ 9.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Surtido</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Plátano c/n Leche</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Papaya c/n Leche</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Fresa c/n Leche</span>
+                    <span class="precio">S/ 12.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- COCKTAILS -->
+
+        <section class="pagina-carta">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 4h14l-6 7v6"></path>
+                            <path d="M9 20h6"></path>
+                            <path d="M12 17v3"></path>
+                        </svg>
+                    </span>
+
+                    COCKTAILS
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M5 4h14l-6 7v6"></path>
+                            <path d="M9 20h6"></path>
+                            <path d="M12 17v3"></path>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Cócteles</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto">
+                    <span class="nombre-producto">Chilcano de Café</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Caffé Irlandés</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Coffee Sour</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Plantas, Exotic</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Mojito</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Mojito de Fresa</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Tzinchiri Blue</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Sunrise 55</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Black Russian</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Pisco Sour</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Amanecer Deseado</span>
+                    <span class="precio">S/ 15.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Shot</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- SNACKS -->
+
+        <section class="pagina-carta">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 11h16"></path>
+                            <path d="M5 11a7 7 0 0 1 14 0"></path>
+                            <path d="M4 11v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"></path>
+                            <path d="M8 16v3"></path>
+                            <path d="M16 16v3"></path>
+                        </svg>
+                    </span>
+
+                    SNACKS
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 11h16"></path>
+                            <path d="M5 11a7 7 0 0 1 14 0"></path>
+                            <path d="M4 11v2a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3v-2"></path>
+                            <path d="M8 16v3"></path>
+                            <path d="M16 16v3"></path>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Aperitivos</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto">
+                    <span class="nombre-producto">Pan c/n Palta</span>
+                    <span class="precio">S/ 4.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Pan c/n Queso</span>
+                    <span class="precio">S/ 4.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Pan c/n Huevo</span>
+                    <span class="precio">S/ 4.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Pan c/n Pollo</span>
+                    <span class="precio">S/ 5.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Pan Mixto</span>
+                    <span class="precio">S/ 5.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Patacones</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Yuquitas fritas</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Papas nativas c/n huevo</span>
+                    <span class="precio">S/ 8.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Chifles</span>
+                    <span class="precio">S/ 7.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Galleta choco chip</span>
+                    <span class="precio">S/ 3.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Empanada de pollo</span>
+                    <span class="precio">S/ 5.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Queque</span>
+                    <span class="precio">S/ 3.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Hamburguesa Clásica</span>
+                    <span class="precio">S/ 10.00</span>
+                </div>
+
+                <div class="producto">
+                    <span class="nombre-producto">Hamburguesa Especial</span>
+                    <span class="precio">S/ 12.00</span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- MIX RESERVE -->
+
+        <section class="pagina-carta mix-reserve">
+
+            <div class="titulo-seccion">
+
+                <h3>
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 7h16"></path>
+                            <path d="M5 7l1 12h12l1-12"></path>
+                            <path d="M8 7V5h8v2"></path>
+                            <path d="M8 12h8"></path>
+                        </svg>
+                    </span>
+
+                    MIX RESERVE
+
+                    <span class="icono-titulo">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M4 7h16"></path>
+                            <path d="M5 7l1 12h12l1-12"></path>
+                            <path d="M8 7V5h8v2"></path>
+                            <path d="M8 12h8"></path>
+                        </svg>
+                    </span>
+
+                </h3>
+
+                <span>Mix Reserve</span>
+
+            </div>
+
+
+            <div class="lista-productos">
+
+                <div class="producto-mix">
+
+                    <div class="nombre-producto">
+                        Combo Clásico
+                    </div>
+
+                    <div class="descripcion">
+                        Orange Coffee + Hamburguesa Clásica
+                    </div>
+
+                    <div class="precio">
+                        S/ 18.00
+                    </div>
+
+                </div>
+
+
+                <div class="producto-mix">
+
+                    <div class="nombre-producto">
+                        Mix Tradicional
+                    </div>
+
+                    <div class="descripcion">
+                        Choco reserve + Plátano frito + Yuquitas fritas + Huevo frito
+                    </div>
+
+                    <div class="precio">
+                        S/ 16.00
+                    </div>
+
+                </div>
+
+
+                <div class="producto-mix">
+
+                    <div class="nombre-producto">
+                        Mix Fit
+                    </div>
+
+                    <div class="descripcion">
+                        Chocolate Pangoa + Plátano sancochado + Huevo sancochado + Ensalada
+                    </div>
+
+                    <div class="precio">
+                        S/ 16.00
+                    </div>
+
+                </div>
+
+
+                <div class="producto-mix">
+
+                    <div class="nombre-producto">
+                        Mix Selvático
+                    </div>
+
+                    <div class="descripcion">
+                        Jugo de Plátano + Patacones + Cecina + Ensalada
+                    </div>
+
+                    <div class="precio">
+                        S/ 17.00
+                    </div>
+
+                </div>
+
+
+                <div class="producto-mix">
+
+                    <div class="nombre-producto">
+                        Mix Premium
+                    </div>
+
+                    <div class="descripcion">
+                        Americano + Jugo de Naranja + Pan integral + Huevo revuelto + Fruta picada + Shot 55
+                    </div>
+
+                    <div class="precio">
+                        S/ 20.00
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- ==============================
+         NAVEGACIÓN DE CARTA
+    ============================== -->
+
+    <div class="navegacion-carta">
+
+        <button
+            type="button"
+            class="boton-pagina"
+            id="anterior">
+
+            ← Anterior
+
+        </button>
+
+
+        <span
+            class="numero-pagina"
+            id="numeroPagina">
+
+            1 / 6
+
+        </span>
+
+
+        <button
+            type="button"
+            class="boton-pagina"
+            id="siguiente">
+
+            Siguiente →
+
+        </button>
+
+    </div>
+
+
+
+    <!-- ==============================
+         GALERÍA
+    ============================== -->
+
+    <section class="galeria-carta">
+
+        <div class="titulo-galeria">
+
+            <h3>
+                Galería
+            </h3>
+
+            <p>
+                Conoce algunos de nuestros productos
+            </p>
+
+        </div>
+
+
+        <div class="contenedor-galeria">
+
+
+            <!-- COFFEE -->
+
+            <div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaCoffee"
+            src="img/coffee.galeria.png"
+            alt="Coffee">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        COFFEE
+    </h4>
+
+</div>
+
+
+<!-- COLD DRINKS -->
+
+<div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaCold"
+            src="img/cold.galeria.png"
+            alt="Cold Drinks">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        COLD DRINKS
+    </h4>
+
+</div>
+
+
+<!-- JUICES -->
+
+<div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaJugo"
+            src="img/jugo.galeria.png"
+            alt="Juices and Smoothies">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        JUICES &amp; SMOOTHIES
+    </h4>
+
+</div>
+
+
+<!-- COCKTAILS -->
+
+<div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaCoctel"
+            src="img/coctel.galeria.png"
+            alt="Cocktails">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        COCKTAILS
+    </h4>
+
+</div>
+
+
+<!-- SNACKS -->
+
+<div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaSnack"
+            src="img/snack.galeria.png"
+            alt="Snacks">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        SNACKS
+    </h4>
+
+</div>
+
+
+<!-- MIX RESERVE -->
+
+<div class="galeria-item">
+
+    <div class="carrusel-mini">
+
+        <img
+            id="galeriaMix"
+            src="img/mix.galeria.png"
+            alt="Mix Reserve">
+
+    </div>
+
+    <h4 class="nombre-galeria">
+        MIX RESERVE
+    </h4>
+
+</div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ==============================
+         FOOTER
+    ============================== -->
+
+    <footer>
+
+    <div class="contenedor-footer-marca">
+
+
+        <!-- LOGO -->
+
+        <div class="columna-logo-footer">
+
+            <img src="img/logo.jpg"
+                 alt="Pangoa Reserve Logo">
+
+        </div>
+
+
+
+        <!-- SOPORTE -->
+
+        <div class="col-footer">
+
+            <h4>
+                SOPORTE
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="#contacto">
+                        Contacto
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Política de Privacidad
+                    </a>
+                </li>
+
+            </ul>
+
+
+            <a href="#"
+               class="btn-libro-reclamaciones">
+
+                <i class="icon-book-open"></i>
+
+                <span>
+                    Libro de<br>
+                    Reclamaciones
+                </span>
+
+            </a>
+
+        </div>
+
+
+
+        <!-- CARTA -->
+
+        <div class="col-footer">
+
+            <h4>
+                CARTA
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="#productos">
+                        Métodos de Extracción
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#productos">
+                        Café de Especialidad
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#carta">
+                        Bebidas y Cócteles
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- EMPRESA -->
+
+        <div class="col-footer">
+
+            <h4>
+                EMPRESA
+            </h4>
+
+
+            <ul>
+
+                <li>
+                    <a href="nosotros.html">
+                        Nuestra Historia
+                    </a>
+                </li>
+
+                <li>
+                    <a href="nosotros.html">
+                        Selva Central
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        Términos y Condiciones
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+
+
+        <!-- CONTACTO -->
+
+        <div class="col-footer">
+
+            <h4>
+                CONTACTO
+            </h4>
+
+
+            <p class="correo-contacto">
+                contacto@pangoareserve.pe
+            </p>
+
+
+            <h4>
+                ÚNETE A LA COMUNIDAD
+            </h4>
+
+
+            <div class="redes-sociales-iconos">
+
+
+                <!-- FACEBOOK -->
+
+                <a href="https://www.facebook.com/p/Pangoa-Reserve-Cafeter%C3%ADa-100085414183384/"
+                   target="_blank"
+                   aria-label="Facebook">
+
+                    <svg width="22"
+                         height="22"
+                         viewBox="0 0 24 24"
+                         fill="#ffffff"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/>
+
+                    </svg>
+
+                </a>
+
+
+
+                <!-- INSTAGRAM -->
+
+                <a href="https://www.instagram.com/cafeteriapangoareserve/"
+                   target="_blank"
+                   aria-label="Instagram">
+
+                    <svg width="22"
+                         height="22"
+                         viewBox="0 0 24 24"
+                         fill="none"
+                         stroke="#ffffff"
+                         stroke-width="2"
+                         stroke-linecap="round"
+                         stroke-linejoin="round"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="2"
+                              y="2"
+                              width="20"
+                              height="20"
+                              rx="5">
+                        </rect>
+
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z">
+                        </path>
+
+                        <line x1="17.5"
+                              y1="6.5"
+                              x2="17.51"
+                              y2="6.5">
+                        </line>
+
+                    </svg>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+
+
+        <!-- COPYRIGHT -->
+
+        <div class="copyright-bottom">
+
+            <p>
+                Pangoa Reserve® Cafetería 2026 |
+                © Todos los derechos reservados.
+            </p>
+
+        </div>
+
+
+    </div>
+
+</footer>
+
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+    /* =================================
+       CAMBIO DE PÁGINAS DE LA CARTA
+    ================================= */
+
+    const paginas = document.querySelectorAll(".pagina-carta");
+
+    const anterior = document.getElementById("anterior");
+
+    const siguiente = document.getElementById("siguiente");
+
+    const numeroPagina = document.getElementById("numeroPagina");
+
+    let paginaActual = 0;
+
+
+    function mostrarPagina(numero) {
+
+        paginas.forEach(function(pagina, indice) {
+
+            pagina.classList.remove("activa");
+
+            if (indice === numero) {
+
+                pagina.classList.add("activa");
+
+            }
+
+        });
+
+
+        numeroPagina.textContent =
+            (numero + 1) + " / " + paginas.length;
+
+
+        anterior.disabled =
+            numero === 0;
+
+
+        siguiente.disabled =
+            numero === paginas.length - 1;
+
+    }
+
+
+    anterior.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        if (paginaActual > 0) {
+
+            paginaActual--;
+
+            mostrarPagina(paginaActual);
+
+        }
+
+    });
+
+
+    siguiente.addEventListener("click", function(event) {
+
+        event.preventDefault();
+
+        if (paginaActual < paginas.length - 1) {
+
+            paginaActual++;
+
+            mostrarPagina(paginaActual);
+
+        }
+
+    });
+
+
+    mostrarPagina(paginaActual);
+
+
+
+    /* =================================
+       GALERÍA
+       TODAS CAMBIAN JUNTAS
+    ================================= */
+
+    const galerias = {
+
+        coffee: [
+            "img/coffee.galeria.png",
+            "img/coffee.galeria2.png",
+            "img/coffee.galeria.3.jpg"
+        ],
+
+        cold: [
+            "img/cold.galeria.png",
+            "img/cold.galeria.2.png",
+            "img/cold.galeria.3.png"
+        ],
+
+        jugo: [
+            "img/jugo.galeria.png",
+            "img/jugo.galeria2.png"
+        ],
+
+        coctel: [
+            "img/coctel.galeria.png",
+            "img/coctel.galeria2.png",
+            "img/coctel.galeria3.jpg"
+        ],
+
+        snack: [
+            "img/snack.galeria.png",
+            "img/snack.galeria.2.png"
+        ],
+
+        mix: [
+            "img/mix.galeria.png",
+            "img/mix.galeria2.png",
+            "img/mix.galeria.3.png",
+            "img/mix.galeria4.png"
+        ]
+
+    };
+
+
+    let indiceGaleria = 0;
+
+
+    function cambiarGaleria() {
+
+        const imagenes = {
+
+            coffee: document.getElementById("galeriaCoffee"),
+
+            cold: document.getElementById("galeriaCold"),
+
+            jugo: document.getElementById("galeriaJugo"),
+
+            coctel: document.getElementById("galeriaCoctel"),
+
+            snack: document.getElementById("galeriaSnack"),
+
+            mix: document.getElementById("galeriaMix")
+
+        };
+
+
+        /* TODAS DESAPARECEN JUNTAS */
+
+        Object.values(imagenes).forEach(function(imagen) {
+
+            imagen.style.opacity = "0";
+
+        });
+
+
+        setTimeout(function() {
+
+            imagenes.coffee.src =
+                galerias.coffee[
+                    indiceGaleria % galerias.coffee.length
+                ];
+
+
+            imagenes.cold.src =
+                galerias.cold[
+                    indiceGaleria % galerias.cold.length
+                ];
+
+
+            imagenes.jugo.src =
+                galerias.jugo[
+                    indiceGaleria % galerias.jugo.length
+                ];
+
+
+            imagenes.coctel.src =
+                galerias.coctel[
+                    indiceGaleria % galerias.coctel.length
+                ];
+
+
+            imagenes.snack.src =
+                galerias.snack[
+                    indiceGaleria % galerias.snack.length
+                ];
+
+
+            imagenes.mix.src =
+                galerias.mix[
+                    indiceGaleria % galerias.mix.length
+                ];
+
+
+            /* TODAS APARECEN JUNTAS */
+
+            Object.values(imagenes).forEach(function(imagen) {
+
+                imagen.style.opacity = "1";
+
+            });
+
+
+            indiceGaleria++;
+
+        }, 450);
+
+    }
+
+
+    /* TODAS CAMBIAN CADA 4 SEGUNDOS */
+
+    setInterval(function() {
+
+        cambiarGaleria();
+
+    }, 4000);
+
+</script>
+
+
+</body>
+
+</html>
