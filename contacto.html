@@ -675,14 +675,18 @@
              FORMULARIO
         ========================= -->
 
+        <!-- =========================
+             FORMULARIO
+        ========================= -->
+
         <div class="formulario-contacto">
 
             <h3>
                 Envíanos un mensaje
             </h3>
 
-
-            <form action="#" method="POST">
+            <!-- 1. Añadimos el id aquí -->
+            <form id="contact-form">
 
 
                 <div class="campo">
@@ -748,19 +752,23 @@
                 </div>
 
 
+                <!-- 2. Añadimos id="submit-btn" al botón -->
                 <button
                     type="submit"
+                    id="submit-btn"
                     class="btn-enviar">
 
                     Enviar Mensaje
 
                 </button>
 
+                <!-- 3. Mensaje de estado dinámico -->
+                <div id="status-message" style="margin-top: 15px; text-align: center; font-weight: bold; font-size: 14px;"></div>
+
 
             </form>
 
         </div>
-
 
     </section>
 
@@ -1025,7 +1033,79 @@
         </div>
 
     </footer>
+<!-- =========================
+         SCRIPTS DE ENVÍO (Google Sheets + EmailJS)
+    ========================= -->
 
+    <!-- SDK de EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       // Inicializa EmailJS con tu Public Key
+       emailjs.init("dpdAklNJqFivZZFgj"); 
+    </script>
+
+    <script>
+        // Pega aquí la URL exacta que te dio Google Apps Script al desplegar
+        const SHEET_WEB_APP_URL = "https://script.google.com/macros/s/AKfycbytBtc5FYUw_ryaJb7gm8HPv_jOZbuQ0iR73RF1lLa8VgrYrgp503ZaS5qmzKcbB2J5pw/exec"; 
+
+        const form = document.getElementById('contact-form');
+        const statusMessage = document.getElementById('status-message');
+        const submitBtn = document.getElementById('submit-btn');
+
+        form.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            submitBtn.disabled = true;
+            submitBtn.textContent = "Enviando...";
+            statusMessage.style.color = "#f39c12"; // Color ámbar de tu marca
+            statusMessage.textContent = "Guardando en Google Sheets...";
+
+            // Recopilamos los datos del formulario
+            const formData = {
+                nombre: document.getElementById('nombre').value,
+                email: document.getElementById('email').value,
+                asunto: document.getElementById('asunto').value,
+                mensaje: document.getElementById('mensaje').value
+            };
+
+            try {
+                // PASO 1: Guardar primero en Google Sheets
+                await fetch(SHEET_WEB_APP_URL, {
+                    method: 'POST',
+                    mode: 'no-cors', // Obligatorio para conectar el navegador con Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                console.log('Datos guardados en Google Sheets con éxito');
+                statusMessage.textContent = "Enviando correo de notificación...";
+
+                // PASO 2: Enviar el correo electrónico mediante EmailJS
+                await emailjs.sendForm('service_30apj9x', 'template_93gj16e', this);
+
+                console.log('Correo enviado con éxito por EmailJS');
+
+                // Éxito en todo el proceso
+                statusMessage.style.color = "#2ecc71"; // Verde éxito
+                statusMessage.textContent = "¡Mensaje enviado y guardado correctamente!";
+                form.reset();
+
+            } catch (error) {
+                console.error('Error en el proceso:', error);
+                statusMessage.style.color = "#e74c3c"; // Rojo error
+                statusMessage.textContent = "Hubo un error al procesar tu solicitud. Inténtalo de nuevo.";
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Enviar Mensaje";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
 
 </body>
 
