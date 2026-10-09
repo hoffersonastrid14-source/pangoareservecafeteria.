@@ -207,6 +207,22 @@
             font-family: inherit;
             font-size: 15px;
         }
+        .campo select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 11px 13px;
+    background: #111111;
+    color: #ffffff;
+    border: 1px solid #444444;
+    border-radius: 9px;
+    outline: none;
+    font-family: inherit;
+    font-size: 15px;
+}
+
+.campo select:focus {
+    border-color: #f39c12;
+}
 
         .campo input:focus,
         .campo textarea:focus {
@@ -722,18 +738,24 @@
 
 
                 <div class="campo">
+    <label for="asunto">Motivo de contacto</label>
 
-                    <label for="asunto">
-                        Asunto
-                    </label>
-
-                    <input
-                        type="text"
-                        id="asunto"
-                        name="asunto"
-                        placeholder="Ej: Reserva / Consulta sobre café">
-
-                </div>
+    <select id="asunto" name="asunto" required>
+        <option value="" disabled selected>
+            Selecciona una opción
+        </option>
+        <option value="Reserva">Reservas</option>
+        <option value="Carta y productos">
+            Consultas sobre nuestra carta y productos
+        </option>
+        <option value="Eventos">Eventos y reuniones</option>
+        <option value="Pedidos">Pedidos y disponibilidad</option>
+        <option value="Sugerencias">
+            Sugerencias o comentarios
+        </option>
+        <option value="Otro">Otro motivo</option>
+    </select>
+</div>
 
 
                 <div class="campo">
@@ -1071,12 +1093,13 @@
             try {
                 // PASO 1: Guardar primero en Google Sheets
                 await fetch(SHEET_WEB_APP_URL, {
-    method: "POST",
-    headers: {
-        "Content-Type": "text/plain;charset=utf-8"
-    },
-    body: JSON.stringify(formData)
-});
+                    method: 'POST',
+                    mode: 'no-cors', // Obligatorio para conectar el navegador con Google Apps Script
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
 
                 console.log('Datos guardados en Google Sheets con éxito');
                 statusMessage.textContent = "Enviando correo de notificación...";
